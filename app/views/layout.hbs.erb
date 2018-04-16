@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+  <!-- Powered by Terminus.io -->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0.2">
+    <meta name="baidu-site-verification" content="H4CfHlHHeo" />
+    <meta property="og:type" content="政采云"/>
+    <meta property="og:image" content="http://zcyimg.dithub.com/logo-og.jpg"/>
+    <meta property="og:description" content="{{seo.description}}" />
+    {{#block "meta"}}
+      <title>{{#if seo.title}}政采云-{{seo.title}}{{else}}政采云-{{#block "title"}}{{/block}}{{/if}}</title>
+      <meta name="keywords" content="{{seo.keywords}}">
+      <meta name="description" content="{{seo.description}}">
+    {{/block}}
+    <link rel="stylesheet" href="/assets/styles/vendor.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/styles/app.css">
+  
+  </head>
+  <body>
+    <div class="root-container">
+      {{#block "body"}}
+      {{/block}}
+    </div>
+    <script src="/assets/scripts/vendor.js"></script>
+    <script src="/assets/scripts/templates.js"></script>
+    <script src="/assets/scripts/app.js"></script>
+    <script>require("app")()</script>
+  </body>
+</html>

@@ -1,0 +1,121 @@
+{{#equals type 'line'}}
+  <div class="editor-config-panel">
+    <h1>选项</h1>
+    <div class="editor-config-panel-container">
+      <div class="editor-config-toolbar">
+        <div>
+          <a> 设为全网</a>
+          <a> 设为全站</a>
+          <a class="setRouter"> 设置作用域</a>
+        </div>
+        <div>
+          <a class="addAllComps"> 增加组件</a>
+          <a class="addRow"> 增加行</a>
+        </div>
+
+      </div>
+
+      <ul class="editor-config-parts">
+        <li>
+          <h2>搜索栏热词</h2>
+          <p>搜索栏热词推荐组件。</p>
+        </li>
+        <li>
+          <form action="" data-scope="base">
+            <h2>基础设置</h2>
+            <div class="field-group" data-description="组件设置" data-name="">
+          <span class="field-group-content">
+          </span>
+            </div>
+            <div class="field-group" data-description="元素与上边元素之间的距离" data-name="margin-top">
+              <span class="field-group-label">边距:</span><span class="field-group-content">
+            <input type="text" name="margin-top" value="0" class="small">
+          </span>
+            </div>
+            <div class="field-group" data-description="元素宽度" data-name="margin-bottom">
+              <span class="field-group-label">宽度:</span><span class="field-group-content">
+              <input type="text" name="width" value="0" class="small">
+          </span>
+            </div>
+            <div class="field-group" data-description="组件在父元素中的对齐位置" data-name="component-align">
+              <span class="field-group-label">对齐:</span><span class="field-group-content">
+              <label><input type="radio" name="text-align" value="left" checked="">默认</label>
+              <label><input type="radio" name="text-align" value="center">居中</label>
+              <label><input type="radio" name="text-align" value="right">居右</label>
+          </span>
+            </div>
+          </form>
+        </li>
+        <li>
+          <a class="saveCfgForm">生效</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  {{else}}
+  <div class="editor-config-panel">
+    <h1>选项</h1>
+    <div class="editor-config-panel-container">
+      <div class="editor-config-toolbar">
+        <div>
+          <a class="setRouter"> 设置作用域</a>
+          <a class="addComps"> 增加组件</a>
+          <a class="deleComs"> 删除组件</a>
+        </div>
+      </div>
+
+      <ul class="editor-config-parts">
+        <li>
+          <h2>搜索栏热词</h2>
+          <p>搜索栏热词推荐组件。</p>
+          <div class="field-group" data-description="组件宽度，单位像素">
+            <span class="field-group-label">宽度:</span><span class="field-group-content">{{this.width}}</span>
+          </div>
+          <div class="field-group" data-description="组件高度，单位像素">
+            <span class="field-group-label">高度:</span><span class="field-group-content">{{this.height}}</span>
+          </div>
+        </li>
+        <li>
+          <form action="" class="cssform" data-scope="base">
+            <h2>基础设置</h2>
+            {{#each this.css}}
+              <div class="field-group" data-description="{{description}}" data-name="{{name}}">
+                <span class="field-group-label">{{label}}:</span>
+                <span class="field-group-content">
+                  <label>
+                    {{#equals this.type 'text'}}
+                      <input type="text" name="{{name}}" value="{{defaultValue}}" class="small setdom">
+                    {{/equals}}
+                  </label>
+                </span>
+              </div>
+            {{/each}}
+          </form>
+        </li>
+        <li>
+          <form action="" class="dataform" data-scope="ext">
+            <h2>组件设置</h2>
+            {{#each this.data}}
+              <div class="field-group" data-description="{{description}}" data-name="{{name}}">
+                <span class="field-group-label">{{label}}:</span>
+                <span class="field-group-content">
+                  {{#equals this.type 'text'}}
+                    <label><input type="text" name="{{name}}" value="{{defaultValue}}" class="small setdom"></label>
+                  {{/equals}}
+                  {{#equals this.type 'radio'}}
+                    {{#each this.options}}
+                    <label><input class="setdom" type="radio" name="{{../name}}" value="{{@key}}" {{#equals @key ../defaultValue}}checked{{/equals}}>{{this}}</label>
+                    {{/each}}
+                  {{/equals}}
+                </span>
+              </div>
+            {{/each}}
+          </form>
+        </li>
+        <li>
+          <a class="saveCfgForm all">生效</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+{{/equals}}

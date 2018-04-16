@@ -1,0 +1,18 @@
+{{#component 'ZCY-eevee-comp-g_search evees-comp js-comp'}}
+  <div class="g_search">
+    <div>
+      <select name="module" class="moduleselect">
+        <option value="0" selected>全站搜索</option>
+      </select>
+    </div>
+    <div class="search_wrap">
+      <div>
+        <i class="icon iconfont icon-sousuo"></i>
+        <input type="text" name="keyword" id="keyword" class="mainkeyword" placeholder="请输入关键字">
+        <i class="icon iconfont icon-Shape"></i>
+      </div>
+      <button class="btn fts_button btn-content" data-exact="1">搜全文</button>
+      <button class="btn fts_button btn-title" data-exact="0">搜标题</button>
+    </div>
+  </div>
+{{/component}}

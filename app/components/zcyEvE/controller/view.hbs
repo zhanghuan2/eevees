@@ -1,0 +1,90 @@
+{{#component "ZCY-eevee-page-controller js-comp"}}
+  <div class="choose-page">
+    <div class="net-eevees eevee-block-btn">网超装修入口</div>
+    <div class="webs-eevees eevee-block-btn">网站集群装修入口</div>
+  </div>
+  <div class="choose-url-list hide">
+    <div class="component-header">
+      <span class="component-title">站点管理</span>
+      <button class="btn btn-primary btn-medium js-sites-new pull-right">创建站点</button>
+    </div>
+    <div class="component-body">
+      <table>
+        <thead>
+        <tr>
+          <th width="25%">站点名称</th>
+          <th width="25%">域名</th>
+          <th width="20%">模板</th>
+          <th width="30%" class="td-operation">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>网站1</td>
+            <td>sdsadsadsadsa</td>
+            <td>--</td>
+            <td class="td-operation">
+              <a href="javascript:;" class="js-release-site" id="110" data-toggle="confirm" data-title="你确定发布此商品?" data-content="确认发布？发布后站点下所有页面的改动都将生效。也可以选择进入装修界面后发布单个页面而非整个站点。" data-event="confirm:release-site">发布站点</a>&nbsp;
+              <a href="/eevees/sites" target="_blank">装修</a>&nbsp;
+              <a href="javascript:;" class="js-sites-config-edit">修改</a>&nbsp;
+              <a href="javascript:;" id="110" data-toggle="confirm" data-title="您确定删除吗?" data-content="删除之后无法恢复,确定删除吗?" data-event="confirm:delete-site">删除</a>&nbsp;
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="ZCY-eevee-page-controller-content hide">
+    <div class="body-content" style="overflow-x: scroll">
+      <div class="editor-menu">
+        <div class="editor-menu-container">
+
+          <ul class="editor-menu-control">
+            <li class="currentPage">
+              当前页面：<b>search</b>
+            </li>
+            <li>
+              <button class="js-page-release">&nbsp;发布</button>
+            </li>
+            <li>
+              <button class="js-page-save">&nbsp;保存</button>
+            </li>
+            <li>
+              <button class="js-page-show">&nbsp;页面</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="ZCY-eevee-row-page" id="rowPage" data-json="{{json this._DATA_}}">
+        <div class="hide">{{json _DATA_.templateJson}}</div>
+        {{#each this._DATA_.templateJson}}
+          <div class="eevee-clu-line-index{{@index}} eevee-grids" data-index="{{@index}}" style="{{#each this.css}}{{@key}}:{{this}};{{/each}}">
+            <div class="eevee-col-row" style="{{#each this.insert.css}}{{@key}}:{{this}};{{/each}}">
+              {{#each this.insert.comps}}
+                <div class="eevee-col-box" style="{{#each this.css}}{{@key}}:{{this}};{{/each}}" data-json="{{json this}}" data-compath="{{this.path}}" data-name="{{this.name}}">
+                  {{inject this.path _BDATA_=this.data _PDATA_=../../_DATA_ shopId=@root.shopId}}
+                </div>
+              {{/each}}
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+    <div class="page-list-container">
+      <div class="left-menu inline-block">
+        <ul class="menu-li">
+          <li class="active">网超</li>
+          <li>医疗馆</li>
+          <li>疫苗馆</li>
+          <li class="addLi">➕</li>
+        </ul>
+      </div>
+      <div class="side-content inline-block">
+
+      </div>
+    </div>
+    <div class="comps-set">
+
+    </div>
+  </div>
+{{/component}}
