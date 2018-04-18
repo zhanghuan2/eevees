@@ -1,0 +1,20 @@
+.ZCY-eevee-comp-infoline{
+    height:28px;
+    width:100%;
+    background:#f5f5f5;
+    .infoline{
+        width: 1200px;
+        height: 100%;
+        margin:0 auto;
+        padding: 0 10px;
+        line-height: 28px;
+        font-size: 14px;
+        .today{
+            float:left;
+        }
+        .counting{
+            float:right;
+        }
+    }
+    
+}

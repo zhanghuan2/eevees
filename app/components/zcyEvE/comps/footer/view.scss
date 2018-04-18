@@ -1,0 +1,98 @@
+.ZCY-eevee-comp-footer{
+    height: 297px;
+    background-color:#333;
+    .page-footer{
+        width: 1200px;
+        height: 100%;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        .logobg{
+            position: absolute;
+            right: 21px;
+            top: 100px;
+        }
+        .qrcode-layout{
+            position: absolute;
+            left: 91px;
+            top: 50%;
+            margin-top: -105px;
+            padding-top: 5px;
+            width: 140px;
+            height: 210px;
+            &>dt{
+                width: 120px;
+                height: 120px;
+                margin: 0 auto 9px;
+                &>img{
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+            &>dd{
+                height: 60px;
+                p{
+                    height: 20px;
+                    line-height: 20px;
+                    font-size: 14px;
+                    text-align: center;
+                    color: #fff;
+                    font-weight: 300;
+                }
+            }
+        }
+        .copyright-layout{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -200px;
+            margin-top: -105px;
+            width: 400px;
+            height: 210px;
+            p{
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                color: #fff;
+                font-size: 14px;
+                font-weight: 300;
+                span{
+                    font-size: inherit;
+                    font-weight: inherit;
+                }
+            }
+            span{
+                color:#fff;
+            }
+            p:nth-child(1){
+                margin-bottom:3px;
+            }
+            p:nth-child(2){
+                height: 25px;
+                line-height: 25px;
+                font-size:18px;
+                margin-bottom: 37px;
+                font-weight: 400;
+            }
+            p:nth-child(4){
+                padding-left: 18px;
+                span{
+                    float: left;
+                    img{
+                        position: relative;
+                        top: 3px;
+                    }
+                }
+                
+            }
+            .police{
+                width: 100px;
+                height: 48px;
+                margin: 5px auto;
+                background: url('/assets/images/other-images/police.png') no-repeat center;
+                background-size: cover;
+            }
+        }
+    }
+    
+}

@@ -1,0 +1,76 @@
+.ZCY-eevee-comp-g_search{
+    width: 620px;
+    height: 40px;
+    &>div:nth-child(1){
+        border: 1px solid #d8d8d8;
+        width: 110px;
+        float: left;
+        height: 40px;
+        select{
+            width: 106px;
+            height: 30px;
+            background: #ffffff;
+            float: left;
+            margin: 1px;
+            border-color: #FFFFFF;
+            outline-color: #FFFFFF;
+            line-height: 20px;
+            margin-top: 5px;
+        }
+    }
+    .search_wrap{
+        width: 500px;
+        height: 40px;
+        float: right;
+        background: #FFFFFF;
+        border-width: 0;
+        &>div{
+            display: inline-block;
+            box-sizing: border-box;
+            height: 40px;
+            width: 324px;
+            padding-left: 40px;
+            border: 1px solid #D1D7E8;
+            i{
+                color:#D1D7E8;
+                cursor: pointer;
+            }
+            i.icon-sousuo{
+                float: left;
+                margin-left: -30px;
+                margin-top: 5px;
+            }
+            i.icon-Shape{
+                float: right;
+                margin-top: 5px;
+                margin-right: 10px;
+            }
+            input{
+                border-width: 0;
+                font-size: 14px;
+                color: #333333;
+                height: 20px;
+                width: 240px;
+                float: left;
+                margin-top: 10px;
+                line-height: 20px;
+            }
+        }
+        button{
+            width: 88px;
+            padding: 0;
+            height: 40px;
+            float: right;
+            color: #FFFFFF;
+            text-align: center;
+            line-height: 40px;
+            font-size: 14px;
+            &.btn-content{
+                background-color:#2E90E1;
+            }
+            &.btn-title{
+                background-color:#FD9E03;
+            }
+        }
+    }
+}

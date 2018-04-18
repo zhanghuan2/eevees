@@ -1,0 +1,75 @@
+.ZCY-eevee-comp-announcement{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #C6C5C5;
+    .list-header{
+        height: 38px;
+        position: relative;
+        &>a{
+            text-decoration: none;
+            font-size: 14px;
+            color: #2E90E1;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        .list-logo{
+            height: 32px;
+            h3{
+                font-weight: 200;
+                line-height: 30px;
+                font-size: 16px;
+                color: #fff;
+            }
+            i.iconfont {
+                position: relative;
+                top: 2px;
+                margin-right: 6px;
+            }
+            .list-title{
+                background-color: #2E90E1;
+                height: 32px;
+                width: 120px;
+                line-height: 32px;
+                font-size: 12px;
+                padding: 0 10px;
+                display: inline-block;
+                vertical-align: top;
+                margin-top: -1px;
+                margin-left: -1px;
+            }
+        }
+        
+    }
+    .list-content{
+        padding: 21px 0 0 30px;
+        overflow: hidden;
+        li{
+            height: 30px;
+            width: 100%;
+            padding-right: 20px;
+            line-height: 30px;
+            span:nth-child(1){
+                float: left;
+                width: 8px;
+                margin-right: 4px;
+            }
+            a{
+                float: left;
+                color: #333;
+                line-height: 30px;
+                max-width: 79%;
+                width: 79%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .pub-time{
+                float: right;
+                line-height: 30px;
+                color: #9b9b9b;
+            }
+        }
+    }
+    
+}

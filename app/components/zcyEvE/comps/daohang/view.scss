@@ -1,0 +1,66 @@
+.ZCY-eevee-comp-daohang{
+    position: relative;
+    height: 80px;
+    .header-title{
+        width: 406px;
+        height: 100%;
+        img{
+            float: left;
+            margin: 10px 1px
+        }
+        div{
+            float: left;
+            position: relative;
+            top: 50%;
+            height: 52px;
+            margin-top: -26px;
+            margin-left: 5px;
+        }
+        p{
+            height: 26px;
+            line-height: 26px;
+            font-size: 24px;
+            color: #4A4A4A;
+        }
+    }
+    .header-nav{
+        position: absolute;
+        left: 406px;
+        top: 0;
+        width: 821px;
+        height: 100%;
+        .lavalamp {
+            position:relative;
+        }
+        .lavalamp-item {
+            z-index:5;
+            position:relative;
+        }
+        .lavalamp-object{
+            border-bottom: 3px solid #197AFF;
+            position: absolute;
+            height: 80px !important;
+            top: 0;
+            left: 0;
+            transition-property: transform, width, height;
+            &.easeOutBack{
+                transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            }
+        }
+        li{
+            float: left;
+            height: 100%;
+            font-size: 16px;
+            padding: 0 10px;
+            cursor: pointer;
+            line-height: 80px;
+            &.active{
+                color: #2E90E1;
+            }
+        }
+        a{
+            color: inherit;
+            
+        }
+    }
+}

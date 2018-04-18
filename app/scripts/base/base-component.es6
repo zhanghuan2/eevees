@@ -10,6 +10,9 @@ const viewOptions = [ '$el', 'events' ];
 class BaseComponent {
   constructor (options) {
     _.extend(this, _.pick(options, viewOptions));
+    this.undelegateEvents();
+    this.delegateEvents();
+    this.init();
   }
   delegateEvents (events) {
     events || (events = _.result(this, 'events'));

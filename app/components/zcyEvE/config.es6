@@ -7,7 +7,15 @@ module.exports =  {
     'search':'search',
     'shuffling':'shuffling',
     'announcement':'announcement',
-    'goodSearch':'goods_search'
+    'goodSearch':'goods_search',
+    'daohang':'daohang',
+    'banner':'banner',
+    'quickentry-y':'quickentry-y',
+    'sitemap':'sitemap',
+    'journal-list':'journal-list',
+    'quickentry-x':'quickentry-x',
+    'quickentry-x2':'quickentry-x2',
+    'footer':'footer'
   },
   defaultParam:{
     '@padding':{

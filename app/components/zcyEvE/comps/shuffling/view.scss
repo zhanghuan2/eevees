@@ -1,0 +1,96 @@
+.ZCY-eevee-comp-shuffling{
+    position: relative;
+    width: 440px;
+    height: 418px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    .list-logo{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 32px;
+        z-index: 2;
+        h3{
+            font-weight: 200;
+            line-height: 30px;
+            font-size: 16px;
+            color: #fff;
+        }
+        .list-title{
+            background-color: #2E90E1;
+            height: 32px;
+            width: 120px;
+            line-height: 32px;
+            font-size: 12px;
+            padding: 0 10px;
+            display: inline-block;
+            vertical-align: top;
+            margin-top: -1px;
+            margin-left: -1px;
+        }
+        i.iconfont {
+            position: relative;
+            top: 2px;
+            margin-right: 6px;
+        }
+    }
+    
+    .img{
+        width: 3000px;
+        position:absolute;
+        li{
+            float: left;
+            &>a{
+                display: block;
+            }
+            img{
+                width: 440px;
+                height: 280px;
+            }
+            p{
+                font-size: 14px;
+                text-align: left;
+                width: 399px;
+                margin-left: 24px;
+                margin-top: 5px;
+                height: 65px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+            }
+        }
+    }
+    .shuffling-footer{
+        h4>a{
+            display: block;
+            text-align: center;
+            font-size: 20px;
+            color: #333;
+            padding-top: 10px;
+            line-height: 30px;   
+        }
+        p{
+            color: #666;
+        }
+    }
+    .num{
+        position: absolute;
+        width: 100%;
+        bottom: 148px;
+        left: 0px;
+        text-align: center;
+        font-size: 0px;
+        li{
+            width: 40px;
+            height: 2px;
+            background-color: #fff;
+            display: inline-block;
+            margin: 0px 3px;
+            cursor: pointer;
+        }
+        .on{
+            background-color: #197AFF;
+        }
+    }
+}   

@@ -1,0 +1,23 @@
+.ZCY-eevee-comp-header{
+    background-color:#333;
+     width:100%;
+     color: #CCC;
+    &>div{
+        height: 30px;
+        width:1200px;
+        margin: 0 auto;
+    }
+    span{
+        line-height: 30px;
+        font-size: 12px;
+    }
+    .iconfont{
+        font-size: 14px;
+    }
+    .top-welcome{
+        float: left;
+    }
+    .top-phone{
+        float: right;
+    }
+}

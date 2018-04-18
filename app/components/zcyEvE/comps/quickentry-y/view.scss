@@ -1,0 +1,53 @@
+.ZCY-eevee-comp-quick_entry1{
+    width: 260px;
+    height: 420px;
+    .quick-entry-y{
+        width: 100%;
+        height: 100%;
+        li{
+            height: 71px;
+            width: 100%;
+            border: 1px solid #C6C5C5;
+            background-color: #F6F7FA;
+            margin-top: -1px;
+            display: table;
+            cursor: pointer;
+            .icon-left{
+                padding-left: 16px;
+                width: 72px;
+                height: 100%;
+            }
+            .icon-next{
+                color: #D1D7E8;
+                font-size: 23px;
+            }
+            span{
+                width: 153px;
+                color: #000;
+                font-size: 18px;
+            }
+            i,span{
+                display: table-cell;
+                vertical-align: middle;
+            }
+            .office-search{
+                background: url('/assets/images/other-images/search.png') no-repeat center;
+            }
+            .evalu-query{
+                background: url('/assets/images/other-images/text-lines.png') no-repeat center;
+            }
+            .score-query{
+                background: url('/assets/images/other-images/office-material.png') no-repeat center;
+            }
+            .info-area{
+                background: url('/assets/images/other-images/tv-screen.png') no-repeat center;
+            }
+            .download-area{
+                background: url('/assets/images/other-images/data-storage.png') no-repeat center;
+            }
+            .mail-entry{
+                background: url('/assets/images/other-images/mail.png') no-repeat center;
+            }
+        }
+    }
+}

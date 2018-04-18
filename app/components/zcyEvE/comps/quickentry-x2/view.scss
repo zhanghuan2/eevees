@@ -1,0 +1,120 @@
+.ZCY-eevee-comp-quickentry-x2{
+    width: 880px;
+    height: 360px;
+    .tab-container{
+        position: relative;
+        height: 277px;
+        background:#F2F2F2;
+        li{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 880px;
+            height: 277px
+        }
+        .entry-item-container{
+            position: relative;
+            float: left;
+            width: 290px;
+            height: 125px;
+            img{
+                position: absolute;
+                left: 19px;
+                top: 19px;
+            }
+            &:nth-child(1)>.entry-item{
+                background: #C79FFE url('/assets/images/other-images/computer.png') no-repeat left 177px top 16px;
+                box-shadow: 0px 2px 0px #C180F9;
+            }
+            &:nth-child(2)>.entry-item{
+                background: #F69581 url('/assets/images/other-images/people2.png') no-repeat left 177px top 12px;
+                box-shadow: 0px 2px 0px #EC7E69;
+            }
+            &:nth-child(3)>.entry-item{
+                background: #A6D8D0 url('/assets/images/other-images/doc.png') no-repeat left 185px top 12px;
+                box-shadow: 0px 2px 0px #81C5B9;
+            }
+            &:nth-child(4)>.entry-item{
+                background: #FEBB50 url('/assets/images/other-images/relation.png') no-repeat left 177px top 12px;
+                box-shadow: 0px 2px 0px #FDA81A;
+            }
+            &:nth-child(5)>.entry-item{
+                background: #6FAED2 url('/assets/images/other-images/earth.png') no-repeat left 177px top 16px;
+                box-shadow: 0px 2px 0px #75B7DD;
+            }
+            &:nth-child(6)>.entry-item{
+                background: #CCD571 url('/assets/images/other-images/address-list.png') no-repeat left 177px top 16px;
+                box-shadow: 0px 2px 0px #BBC570;
+            }
+        }
+        
+        .entry-item{    
+            width: 250px;
+            height: 100px;
+            margin-top: 24px;
+            margin-right: 16px;
+            margin-left: 24px;
+            padding-top: 22px;
+            border-radius: 5px;
+            p{
+                font-size: 18px;
+                color: #FFF;
+                text-align: center;
+            }
+            
+        }
+
+    }
+    .tab-bar{
+        height: 84px;
+        li{
+            position: relative;
+            height: 100%;
+            width: 20%;
+            float: left;
+            background: #fff;
+            padding-top: 5px;
+            cursor: pointer;
+            &:hover{
+                background-color:#F6F7FA; 
+            }
+            a{
+                position: absolute;
+                display: block;
+                width:176px; 
+                height: 84px;
+                left: 0;
+                top: 0;
+            }
+            .tab-title{
+                height: 20px;
+                line-height: 20px;
+                font-size: 16px;
+                text-align: center;
+                font-weight: 600;
+            }
+            .tab-ico{
+                height: 50px;
+                line-height: 50px;
+                font-size: 32px;
+            }
+            .ico-office{
+                background: url('/assets/images/other-images/file-backet.png') no-repeat center;
+            }
+            .ico-bookkeeper{
+                background: url('/assets/images/other-images/course.png') no-repeat center;
+            }
+            .ico-asset-evalu{
+                background: url('/assets/images/other-images/finances.png') no-repeat center;
+            }
+            .ico-gov{
+                background: url('/assets/images/other-images/banks.png') no-repeat center;
+            }
+            .ico-industry{
+                background: url('/assets/images/other-images/shopping-store.png') no-repeat center;
+            }
+            
+        }
+    }
+    
+}

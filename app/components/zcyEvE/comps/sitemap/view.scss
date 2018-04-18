@@ -1,0 +1,77 @@
+.ZCY-eevee-comp-sitemap{
+    height: 303px;
+    padding-top: 47px;
+    width:1200px;
+    margin: 0 atuo;
+    .map-header{
+        height: 36px;
+        margin-bottom: 21px;
+        &>p{
+            width: 120px;
+            height: 36px;
+            line-height: 36px;
+            margin: 0 auto;
+            background-color: #2E90E1;
+            color: #fff;
+            text-align: center;
+        }
+    }
+    .map-content{
+        height: 160px;
+        border-top: solid 1px #DFDFDF;
+        border-left: solid 1px #DFDFDF;
+        li{
+            float: left;
+            height: 80px;
+            border-bottom: solid 1px #DFDFDF;
+            border-right: solid 1px #DFDFDF;  
+            &:nth-child(1){
+                width: 274px;
+                background: url('/assets/images/other-images/linksite01.png') no-repeat center;
+            }
+            &:nth-child(2){
+                width: 209px;
+                background: url('/assets/images/other-images/linksite02.png') no-repeat center;
+            }
+            &:nth-child(3){
+                width: 248px;
+                background: url('/assets/images/other-images/linksite03.png') no-repeat center;
+            }
+            &:nth-child(4){
+                width: 240px;
+                background: url('/assets/images/other-images/linksite04.png') no-repeat center;
+            }
+            &:nth-child(5){
+                width: 228px;
+                background: url('/assets/images/other-images/linksite05.png') no-repeat center;
+            }
+            &:nth-child(6){
+                width: 274px;
+                background: url('/assets/images/other-images/linksite06.png') no-repeat center;
+            }
+            &:nth-child(7){
+                width: 209px;
+                background: url('/assets/images/other-images/linksite07.png') no-repeat center;
+            }
+            &:nth-child(8){
+                width: 248px;
+                background: url('/assets/images/other-images/linksite08.png') no-repeat center;
+            }
+            &:nth-child(9){
+                width: 240px;
+                background: url('/assets/images/other-images/linksite09.png') no-repeat center;
+            }
+            &:nth-child(10){
+                width: 228px;
+                background: url('/assets/images/other-images/linksite10.png') no-repeat center;
+            }
+            &>a{
+                display: block;
+                height: 100%;
+                cursor: pointer;
+            }
+        }
+        
+    }
+
+}
