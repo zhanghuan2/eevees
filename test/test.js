@@ -47,11 +47,11 @@ module.exports = {
       ];
       return data;
     },
-    // '/api/template/getCommon':function(){
-    //   return [
+    '/api/template/getCommon':function(){
+      return [
     
-    //   ]
-    // }
+      ]
+    }
   },
   comps: {
     'zcyEvE/page':function(){

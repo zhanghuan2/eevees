@@ -15,7 +15,8 @@ module.exports =  {
     'journal-list':'journal-list',
     'quickentry-x':'quickentry-x',
     'quickentry-x2':'quickentry-x2',
-    'footer':'footer'
+    'footer':'footer',
+    'gotopbar':'gotopbar'
   },
   defaultParam:{
     '@padding':{
