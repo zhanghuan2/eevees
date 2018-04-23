@@ -2,6 +2,10 @@
   height: 100%;
   width: 100%;
   background-color: #ffffff;
+  .review {
+    width: 100%;
+    height: 100%;
+  }
   ul {
     list-style: none;
     padding: 0;
@@ -90,30 +94,6 @@
 
           }
         }
-      }
-    }
-  }
-  .evees-comp{
-
-  }
-  .eevee-col-box{
-    .controller-mask{
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 100%;
-      left: 0;
-      background-color: rgba(0, 0, 0, 0.3);
-    }
-    &.hover-evt{
-      position: relative;
-    }
-    &:hover{
-      cursor: pointer;
-    }
-    &.comp-selected{
-      .controller-mask{
-        display:block!important;
       }
     }
   }
@@ -226,17 +206,23 @@
             cursor: pointer;
           }
           &.active{
-            background: #444444;
+            background: rgb(51,70,91);
             color: #fff;
           }
         }
       }
     }
     .side-content{
+      h2 {
+        margin: 0;
+        padding: 0;
+      }
       width: 200px;
       height: 100%;
-      background: #444444;
+      background: rgb(51,70,91);
       margin-left:-5px;
+      color:rgb(145,168,192);
+      overflow: auto;
       ul{
         li{
           line-height: 20px;
@@ -253,17 +239,6 @@
     }
   }
   .comps-set{
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 230px;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    height: 100%;
-    color: #666666;
-    background-color: #f5f5f5;
-    overflow-y: auto;
     /* line 199, src/styles/eevee/workbench.scss */
     .editor-config-parts {
       margin-bottom: 40px;
@@ -272,12 +247,10 @@
     .editor-config-parts > li {
       display: block;
       vertical-align: top;
-      margin-bottom: 20px;
     }
     /* line 207, src/styles/eevee/workbench.scss */
     .editor-config-parts > li h2 {
       font-size: 1.5em;
-      line-height: 1.5em;
       font-weight: bold;
       height: 40px;
       line-height: 40px;
@@ -376,12 +349,10 @@
   }
   .ZCY-eevee-row-page{
     margin-top: 50px;
-    padding: 10px 7px;
     height: 99%;
     overflow: auto;
   }
   .eevee-grids,.eevee-col-row{
-    padding: 8px 0;
     &.hover-evt{
       outline: 2px solid green;
     }
@@ -395,6 +366,55 @@
     }
     border:1px solid #dddddd;
   }
+
+  .side-content {
+    .compsSet {
+      li>ul{
+        display: none;
+      }
+      li.active > ul{
+       display: inline-block;
+        li.lastli.active{
+          background: rgb(30,45,63);
+        }
+      }
+      ul{
+        li{
+          border-bottom:0;
+          padding-left:0;
+          &.show-title{
+            p.title {
+              padding-left: 10px;
+              font-size: 20px;
+            }
+            p.title-msg {
+              padding-left: 10px;
+            }
+          }
+        }
+        &.show-ele {
+          li{
+            padding-left: 20px;
+            &.active {
+              color: #ffffff;
+              p.last-title{
+                font-size: 18px;
+              }
+            }
+          }
+        }
+      }
+      .review-img{
+        padding: 18px 0;
+        border: 1px dotted #ffffff;
+        width: 165px;
+        overflow: hidden;
+        .evees-comp{
+          background: #ffffff;
+        }
+      }
+    }
+  }
 }
 .new-right{
   position: fixed;
@@ -404,4 +424,8 @@
 }
 html,body,.root-container,.ZCY-eevee-page-controller,.ZCY-eevee-page-controller-content,.body-content{
   height:100%;
+}
+.ZCY-eevee-row-page {
+  position: relative;
+
 }

@@ -39,6 +39,21 @@ module.exports =  (function(){
     //result.hash = option.hash;
     return template(data);
   });
+  Handlebars && Handlebars.registerHelper('insertComps', function (a) {
+    let data  = this;
+    const path = arguments[0]+arguments[1];
+    let template = Handlebars.templates[`${path}/view`];
+    //  newData,
+    //  ifRenderJs,
+    //  option;
+    //ifRenderJs = typeof arguments[1] === 'boolean';
+    //option = arguments[arguments.length - 1];
+    //newData = option.fn() == '' ? {} : JSON.parse(option.fn());
+    //const result = $.extend(true, {}, this, newData);
+    //ifRenderJs && Router.setInsertController(path, result);
+    //result.hash = option.hash;
+    return template(data);
+  });
 
 
   Handlebars && Handlebars.registerHelper('component', function (a, options) {

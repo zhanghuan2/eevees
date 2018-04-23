@@ -1,6 +1,7 @@
 module.exports = {
   urls: {
     '/api/template/view':function(){
+      
       var data = {
         "districtCodes": '339900',
         "id": 73460,

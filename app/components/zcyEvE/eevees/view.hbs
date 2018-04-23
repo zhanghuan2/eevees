@@ -17,39 +17,39 @@
             <li>
               <button class="js-page-show">&nbsp;页面</button>
             </li>
+            <li>
+              <button class="js-page-yl">&nbsp;预览</button>
+            </li>
           </ul>
         </div>
       </div>
       <div class="ZCY-eevee-row-page" id="rowPage" data-json="{{json this._DATA_}}">
-        <div class="hide">{{json _DATA_.templateJson}}</div>
-        {{#each this._DATA_.templateJson}}
-          <div class="eevee-clu-line-index{{@index}} eevee-grids" data-index="{{@index}}" style="{{#each this.css}}{{@key}}:{{this}};{{/each}}">
-            <div class="eevee-col-row" style="{{#each this.insert.css}}{{@key}}:{{this}};{{/each}}">
-              {{#each this.insert.comps}}
-                <div class="eevee-col-box" style="{{#each this.css}}{{@key}}:{{this}};{{/each}}" data-json="{{json this}}" data-compath="{{this.path}}" data-name="{{this.name}}">
-                  {{inject this.path _BDATA_=this.data _PDATA_=../../_DATA_ shopId=@root.shopId}}
-                </div>
-              {{/each}}
-            </div>
-          </div>
-        {{/each}}
+
+        <!--<div class="page-grid-row"></div>-->
       </div>
     </div>
     <div class="page-list-container">
       <div class="left-menu inline-block">
         <ul class="menu-li">
-          <li class="active">网超</li>
-          <li>医疗馆</li>
-          <li>疫苗馆</li>
-          <li class="addLi">➕</li>
+          <li class="active">页面配置</li>
+          <li class="addAllComps">增加组件</li>
+          <li class="settingComps">设置组件</li>
         </ul>
       </div>
       <div class="side-content inline-block">
+        <div class="pageSet tabSwitch">
 
+        </div>
+        <div class="compsSet tabSwitch hide">
+
+        </div>
+        <div class="comps-set tabSwitch hide">
+
+        </div>
       </div>
     </div>
-    <div class="comps-set">
+  </div>
+  <div class="review ZCY-eevee-page-body hide">
 
-    </div>
   </div>
 {{/component}}

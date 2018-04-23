@@ -4,13 +4,8 @@
     <div class="editor-config-panel-container">
       <div class="editor-config-toolbar">
         <div>
-          <a> 设为全网</a>
-          <a> 设为全站</a>
-          <a class="setRouter"> 设置作用域</a>
-        </div>
-        <div>
-          <a class="addAllComps"> 增加组件</a>
           <a class="addRow"> 增加行</a>
+          <a class="addAllComps"> 删除行</a>
         </div>
 
       </div>
@@ -54,25 +49,25 @@
   </div>
   {{else}}
   <div class="editor-config-panel">
-    <h1>选项</h1>
     <div class="editor-config-panel-container">
-      <div class="editor-config-toolbar">
-        <div>
-          <a class="setRouter"> 设置作用域</a>
-          <a class="addComps"> 增加组件</a>
-          <a class="deleComs"> 删除组件</a>
-        </div>
-      </div>
-
       <ul class="editor-config-parts">
-        <li>
-          <h2>搜索栏热词</h2>
-          <p>搜索栏热词推荐组件。</p>
+        <li class="baseSet">
+          <h2>基础样式设置</h2>
           <div class="field-group" data-description="组件宽度，单位像素">
-            <span class="field-group-label">宽度:</span><span class="field-group-content">{{this.width}}</span>
+            <span class="field-group-label">宽度:</span>
+            <span class="field-group-content">
+              <label>
+                <input type="text" name="width" value="{{this.width}}" class="small setStyleWidth">
+              </label>
+            </span>
           </div>
           <div class="field-group" data-description="组件高度，单位像素">
-            <span class="field-group-label">高度:</span><span class="field-group-content">{{this.height}}</span>
+            <span class="field-group-label">高度:</span>
+            <span class="field-group-content">
+              <label>
+                <input type="text" name="height" value="{{this.height}}" class="small setStyleHeight" />
+              </label>
+            </span>
           </div>
         </li>
         <li>
@@ -94,7 +89,7 @@
         </li>
         <li>
           <form action="" class="dataform" data-scope="ext">
-            <h2>组件设置</h2>
+            <h2>参数设置</h2>
             {{#each this.data}}
               <div class="field-group" data-description="{{description}}" data-name="{{name}}">
                 <span class="field-group-label">{{label}}:</span>
