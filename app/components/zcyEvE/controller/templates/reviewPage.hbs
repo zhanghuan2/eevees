@@ -1,12 +1,13 @@
 <div class="hide">{{json this}}</div>
+<div class="closeReview">X</div>
 {{#each this}}
-  <div class="eevee-clu-line eevee-grids" style="{{#each this.css}}{{@key}}:{{this}};{{/each}}">
+  <div class="{{#equals this.type 'col'}}eevee-clu-line{{else}}eevee-col-box{{/equals}} eevee-grids" style="{{this.css}}">
     {{#each this.comps}}
-      <div class="eevee-line-row-box" style="{{#each this.insert.css}}{{@key}}:{{this}};{{/each}}">
+      <div class="eevee-line-row-box" style="{{this.css}}">
       {{#each this.insert}}
-        <div class="eevee-line-row">
-          <div class="eevee-line-ele" style="{{this.css}}">
-            {{#insert this.path}}
+        <div class="eevee-line-row" data-compath="{{this.path}}">
+          <div class="eevee-row-ele" style="{{this.css}}">
+            {{#insert this.path _DATA_=this.data}}
               {}
             {{/insert}}
           </div>

@@ -1,14 +1,12 @@
 module.exports = {
   defaultParam:{
     css:[
-      '@padding',
-      '@margin',
       {
-        'name':'width',
-        'label':'长度',
-        'description': "设置组件长度",
+        'name':'background',
+        'label':'背景色',
+        'description': "设置组件背景色",
         'type': "text",
-        'defaultValue':'300'
+        'defaultValue':'#000000'
       }
     ],
     data:[
@@ -19,22 +17,11 @@ module.exports = {
         'type': "text",
         'defaultValue':'400-881-800'
       },{
-        'name':'action',
-        'label':'搜索跳转链接',
-        'description': "点击搜索按钮跳转链接地址，默认/eevees/search",
+        'name':'webname',
+        'label':'网站名称',
+        'description': "头部欢迎标语",
         'type': "text",
-        'defaultValue':'/eevees/search'
-      },
-      {
-        name: "position",
-        label: "热词位置",
-        description: "为热词选择展示位置",
-        type: "radio",
-        options:{
-          "up": "搜索框上面",
-          "down": "搜索框下面"
-        },
-        defaultValue: "down"
+        'defaultValue':'浙江省注册会计师协会网站！'
       }
     ]
   }

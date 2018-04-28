@@ -98,12 +98,12 @@
     }
   }
   .editor-menu {
+    padding: 10px 0;
     position: absolute;
     z-index: 1002;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(245, 245, 245, 0.95);
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
     /* line 55, src/styles/eevee/workbench.scss */
     .editor-menu-container {
@@ -157,7 +157,6 @@
       box-sizing: border-box;
       padding: 0 10px;
       margin: 0;
-      height: 23px;
       line-height: 21px;
       border: 1px solid #1abc9c;
       vertical-align: middle;
@@ -348,8 +347,8 @@
     }
   }
   .ZCY-eevee-row-page{
-    margin-top: 50px;
-    height: 99%;
+    margin-top: 60px;
+    height: 90%;
     overflow: auto;
   }
   .eevee-grids,.eevee-col-row{
@@ -369,6 +368,13 @@
 
   .side-content {
     .compsSet {
+      button {
+        border: 1px solid #4a90e2;
+        padding: 4px 10px;
+        border-radius: 5px;
+        background: #4a90e2;
+        color: #ffffff;
+      }
       li>ul{
         display: none;
       }
@@ -402,6 +408,13 @@
               }
             }
           }
+          a{
+            margin: 10px 0 13px 0;
+            display: inline-block;
+          }
+          p.comps-title{
+            margin: 10px 0 0 0;
+          }
         }
       }
       .review-img{
@@ -428,4 +441,7 @@ html,body,.root-container,.ZCY-eevee-page-controller,.ZCY-eevee-page-controller-
 .ZCY-eevee-row-page {
   position: relative;
 
+}
+body{
+  overflow: hidden;
 }

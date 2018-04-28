@@ -73,10 +73,23 @@ class EeveePageController {
     });
 
   }
+  
   bindEvent(){
     this.$el.find('.side-content').on('change','.baseSet input',(e)=>{
       let $tar = $(e.target);
       let v = $tar.val();
+      if($tar.is('input[type=radio]')){
+        let $dom = this.pageBox.find('.comp-selected .eevee-row-ele');
+        if($tar.filter(':checked').val()==='right'){
+          let $p = $dom.closest('.eevee-grids');
+          let w = $p.width();
+          let s = ($dom.offset().left-$p.offset().left)+$dom.width();
+          $dom.css('margin-left',(w-s)+'px');
+        }else if($tar.filter(':checked').val()==='left'){
+          $dom.css('margin-left',0);
+        }
+        return;
+      }
       if(!!v){
         let $dom = this.pageBox.find('.comp-selected .eevee-row-ele');
         // $('.click-evt').removeClass('click-evt');
@@ -105,17 +118,20 @@ class EeveePageController {
         this.placeComps(this.position);
       }
     });
-    this.$con.on('scroll',()=>{
-      if(!this.drag){
-        return;
-      }
+    this.pageBox.on('scroll',()=>{
       this.scroll={
-        x:this.$con.scrollLeft(),
-        y:this.$con.scrollTop()
+        x:this.pageBox.scrollLeft(),
+        y:this.pageBox.scrollTop()
       }
+      console.log(this.scroll)
+      
     });
     this.$el.on('click','.side-content .compsSet a',(e)=>{
       !this.drag && this.addAllComp(e);
+    });
+    this.$el.find('.ZCY-eevee-page-body').on('click','.closeReview',()=>{
+      this.$el.find('.ZCY-eevee-page-controller-content').removeClass('hide');
+      this.$el.find('.review').html(html).addClass('hide');
     });
     this.$el.on('click','.side-content .compsSet li.showmore',(e)=>{
       
@@ -174,6 +190,18 @@ class EeveePageController {
     //   this.name = $(e.currentTarget).data('name');
     //   this.clickEvent(e);
     // });
+    // 点击组件进行设置
+    this.$el.on('click','.choose-line',(e)=>{
+      let $p = $(e.target).parent();
+      if($p.hasClass('boder-evt'))return;
+      let $pageSet = this.$el.find('.side-content');
+      this.$el.find('.boder-evt').removeClass('boder-evt');
+      $p.addClass('boder-evt');
+      this.$el.find('.comps-set').html(compsetTemplates({type:'line'}));
+      this.$el.find('.menu-li .settingComps').trigger('click');
+      e.preventDefault();
+      e.stopPropagation();
+    });
     //页面选择
     this.$el.on('change','.controller-main input',(e)=>{
       this.setValue(e);
@@ -198,7 +226,12 @@ class EeveePageController {
     });
     this.$el.on('click','.addRow',(e)=>{
       let type = $(e.target).hasClass('insideRow') ? 'inside' : 'out';
-      this.addOutLine(type);
+      let lx = $(e.target).hasClass('after') ? 'after' : false;
+      this.addOutLine(type,lx);
+    });
+    this.$el.on('click','.deleLine',(e)=>{
+      this.$el.find('.boder-evt').remove();
+      this.resetMap();
     });
 
     //new event
@@ -254,10 +287,12 @@ class EeveePageController {
     let result = [];
     $.each($line,(i,that)=>{
       let $that = $(that);
+      let type = $(that).hasClass('eevee-col-box') ? 'cen':'col';
       let obj = {
+         type:type,
         'comps':[]
       };
-      if(!!$that.children().length){
+      if(!!$that.children('.eevee-line-row-box').length){
         let $dom = $that.find('.eevee-line-row-box');
         $.each($dom,(j,_that)=>{
           let _$that = $(_that);
@@ -353,9 +388,10 @@ class EeveePageController {
     let result = false;
     let arr = this.lineArr.slice();
     arr.forEach((v,i)=>{
+      let h = v+this.scroll.y;
       let cls = this.lineMap[`key${this.lineArr[i]}`];
-      let e = this.lineArr[i+1] || (this.lineArr[i]+$(cls).height()+1);
-      if((p.y-v>0||p.y-v===0) && (p.y-e <0||p.y-e ===0)){
+      let e = (this.lineArr[i+1]+this.scroll.y) || (this.lineArr[i]+$(cls).height()+1);
+      if((p.y-h>0||p.y-h===0) && (p.y-e <0||p.y-e ===0)){
         result = cls;
         return false;
       }
@@ -376,7 +412,7 @@ class EeveePageController {
       let result = false;
       let w = $tar.width;
       $.each(dom,(i,v)=>{
-        let e = $(v).width()+$(v).offset().left;
+        let e = $(v).width()+$(v).offset().left+this.scroll.x;
         if(p.x>e && i+2<=dom.length){
           return true
         }
@@ -413,13 +449,14 @@ class EeveePageController {
     this.pageBox.find('.dragStart').remove();
   }
   placeComps(p) {
+    this.resetMap()
     let positon = p;
     
     let line = this.getWhtchLine(p);
     if(line) {
       let cfg = this.getWhtchRow(p,line);
       this.appendNewBox(cfg,p);
-      this.reContMap();
+      this.resetMap()
       return;
     }else{
       this.pageBox.find('.dragStart').remove();
@@ -462,13 +499,12 @@ class EeveePageController {
         }
       }
     }else {
-      let cfg = this.$el.find('.cssform').getData();
+      let cfg = this.$el.find('.dataform').getData();
       let $tar = this.$el.find('.comp-selected');
-      for(let pop in cfg) {
-        if(cfg[pop]!= 0){
-          $tar.css(pop,cfg[pop]);
-        }
-      }
+      $tar.children('.eevee-row-ele').data('json',cfg);
+      let path = $tar.data('compath');
+      let html = Handlebars.templates[`${path}/view`];
+      $tar.children('.eevee-row-ele').find('.evees-comp').replaceWith(html({'_DATA_':cfg}));
     }
   }
   setRouter(){
@@ -543,8 +579,8 @@ class EeveePageController {
     let path = rootPath+'/'+comp+'/view';
     let temp = Handlebars.templates[path];
     let positon = {
-      x:e.clientX-200,
-      y:e.clientY-60
+      x:e.clientX-200+(this.scroll.x||0),
+      y:e.clientY-60+(this.scroll.y||0)
     };
     this.pageBox.append(`<div class="dragStart hide"><div class="eevee-line-row" data-compath="${rootPath}/${comp}"><div class="eevee-row-ele">${temp()}</div></div></div>`);
     this.pageBox.find('.dragStart').css({
@@ -561,23 +597,33 @@ class EeveePageController {
     // }
     // fn && new fn($);
   }
-  addOutLine(t){
+  addOutLine(t,lx){
+    
     let index = this.index++;
-    let html = `<div class="eevee-clu-line eevee-grids eevee-line${index}" style="min-height:50px">
-                
+    let html = `<div class="eevee-clu-line eevee-grids eevee-line${index}" data-index="${index}">
+                  <div class="choose-line">+</div>
                 </div>`;
     if(t==='inside'){
-      html = `<div class="eevee-col-box eevee-grids eevee-line${index}" style="min-height:50px"></div>`
+      html = `<div class="eevee-col-box eevee-grids eevee-line${index}" data-index="${index}">
+                <div class="choose-line">+</div>
+              </div>`
     }
     let $tar = this.$el.find('.click-evt');
     if(!!$tar.length){
       this.$el.find('.click-evt').after(html);
     }else{
-      this.pageBox.append(html);
+      lx ? this.$el.find('.boder-evt').after(html):this.pageBox.append(html);
     }
-    let num = $(`.eevee-line${index}`).offset().top;
-    this.lineArr.push(num-51);
-    this.lineMap[`key${num-51}`] = `.eevee-line${index}`;
+    this.resetMap();
+  }
+  resetMap(){
+    let $dom = this.pageBox.find('.eevee-grids');
+    $.each($dom,(i,v)=>{
+      let num = $(v).offset().top;
+      this.lineArr.push(num-51);
+      let index = $(v).data('index');
+      this.lineMap[`key${num-51}`] = `.eevee-line${index}`;
+    });
   }
   addPage(){
     let that = this;
@@ -609,12 +655,13 @@ class EeveePageController {
   }
   showTemplate(d){
     if(d){
-      eevee.renderPage({page:2},this.pageBox);
+      // eevee.renderPage({page:2},this.pageBox);
+      server.getPage().then((d)=>{
+        let data = JSON.parse(d);
+        this.pageBox.html(reviewPage(data));
+      })
     } else {
-      let html = `<div class="eevee-clu-line-index0 eevee-grids" style="min-height:30px">
-                    <div class="eevee-col-row"></div>
-                  </div>`
-      this.pageBox.html(html);
+      this.pageBox.html('');
     }
   }
 
@@ -693,7 +740,7 @@ class EeveePageController {
     }else{
       $tar.remove();
     }
-    this.reContMap();
+    this.resetMap();
     this.$el.find('.side-content').find('.comps-set').empty();
   }
   setStyle(){

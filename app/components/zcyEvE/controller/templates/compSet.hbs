@@ -1,50 +1,10 @@
 {{#equals type 'line'}}
   <div class="editor-config-panel">
-    <h1>选项</h1>
-    <div class="editor-config-panel-container">
-      <div class="editor-config-toolbar">
-        <div>
-          <a class="addRow"> 增加行</a>
-          <a class="addAllComps"> 删除行</a>
-        </div>
-
-      </div>
-
-      <ul class="editor-config-parts">
-        <li>
-          <h2>搜索栏热词</h2>
-          <p>搜索栏热词推荐组件。</p>
-        </li>
-        <li>
-          <form action="" data-scope="base">
-            <h2>基础设置</h2>
-            <div class="field-group" data-description="组件设置" data-name="">
-          <span class="field-group-content">
-          </span>
-            </div>
-            <div class="field-group" data-description="元素与上边元素之间的距离" data-name="margin-top">
-              <span class="field-group-label">边距:</span><span class="field-group-content">
-            <input type="text" name="margin-top" value="0" class="small">
-          </span>
-            </div>
-            <div class="field-group" data-description="元素宽度" data-name="margin-bottom">
-              <span class="field-group-label">宽度:</span><span class="field-group-content">
-              <input type="text" name="width" value="0" class="small">
-          </span>
-            </div>
-            <div class="field-group" data-description="组件在父元素中的对齐位置" data-name="component-align">
-              <span class="field-group-label">对齐:</span><span class="field-group-content">
-              <label><input type="radio" name="text-align" value="left" checked="">默认</label>
-              <label><input type="radio" name="text-align" value="center">居中</label>
-              <label><input type="radio" name="text-align" value="right">居右</label>
-          </span>
-            </div>
-          </form>
-        </li>
-        <li>
-          <a class="saveCfgForm">生效</a>
-        </li>
-      </ul>
+    <h1>操作</h1>
+    <div class="right-button">
+      <button class="btn btn-primary btn-medium deleLine">删除选中行</button><br/><br/><br/>
+      <button class="btn btn-primary btn-medium addRow after">增加外联行</button><br/><br/><br/>
+      <button class="btn btn-primary btn-medium addRow insideRow after">增加内联行</button>
     </div>
   </div>
   {{else}}
@@ -66,6 +26,16 @@
             <span class="field-group-content">
               <label>
                 <input type="text" name="height" value="{{this.height}}" class="small setStyleHeight" />
+              </label>
+            </span>
+          </div>
+          <div class="field-group" data-description="组件对齐方式">
+            <span class="field-group-label">组件对齐方式:</span>
+            <span class="field-group-content">
+              <label>
+                <input type="radio" name="textAlign" checked value="left" class="small setStyleHeight" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="textAlign"  value="center" class="small setStyleHeight" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="textAlign" value="right" class="small setStyleHeight" />
               </label>
             </span>
           </div>

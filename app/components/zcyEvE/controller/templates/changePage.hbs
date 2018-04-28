@@ -1,28 +1,31 @@
 <table>
   <tbody>
   <tr>
-    <td>
+    <td width="20%">
       pageID：
     </td>
-    <td>
-      <input type="text" name="pageid" />
+    <td width="40%">
+      <input type="text" name="pageid" class="form-control"/>
     </td>
+    <td width="40%"></td>
   </tr>
   <tr>
-    <td>
+    <td width="20%">
       页面名称：
     </td>
     <td>
-      <input type="text" name="pagename" />
+      <input type="text" name="pagename" class="form-control"/>
     </td>
+    <td width="60%"></td>
   </tr>
   <tr>
-    <td>
+    <td width="20%">
       页面链接：
     </td>
     <td>
-      <input type="text" name="href" />
+      <input type="text" name="href" class="form-control"/>
     </td>
+    <td width="60%"></td>
   </tr>
   <tr>
     <td>
@@ -30,14 +33,13 @@
     </td>
     <td>
       <select>
-        <option value="">选择大厅</option>
-        <option value="">医疗馆</option>
-        <option value="">疫苗馆</option>
+        <option value="hq">注册会计网</option>
       </select>
     </td>
     <td>
       <select name="coms">
-        <option value="">无</option>
+        <option value="">请选择...</option>
+        <option value="main">首页</option>
         {{#each this}}
           <option value="{{this}}">{{@key}}</option>
         {{/each}}

@@ -26,6 +26,7 @@ module.exports =  (function(){
   Handlebars && Handlebars.registerHelper('insert', function (a) {
     let data  = this;
     const path = arguments[0];
+    let _data = arguments.length === 2 ? (arguments[1].hash||{}) :data;
     let template = Handlebars.templates[`${path}/view`];
     _CONTROLLER_.push(path);
     //  newData,
@@ -37,7 +38,7 @@ module.exports =  (function(){
     //const result = $.extend(true, {}, this, newData);
     //ifRenderJs && Router.setInsertController(path, result);
     //result.hash = option.hash;
-    return template(data);
+    return template(_data);
   });
   Handlebars && Handlebars.registerHelper('insertComps', function (a) {
     let data  = this;

@@ -65,5 +65,12 @@ module.exports =  {
     url: '/api/template/submit',
     traditional: true,
     data: JSON.stringify(params)
+  }),//发布
+  getPage: params => $.ajax({
+    spins: true,
+    type: 'get',
+    url: '/api/template/submit11',
+    traditional: true,
+    data: params
   })
 };
