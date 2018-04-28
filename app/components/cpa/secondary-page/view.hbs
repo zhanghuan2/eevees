@@ -1,0 +1,70 @@
+{{#component "ZCY-secondary-page js-comp"}}
+    {{inject 'zcyEvE/comps/header'}}
+    {{inject 'zcyEvE/comps/daohang' _current=_title}}
+    <!-- 主体部分 -->
+    <div class="clearfix main-layout">
+        <div class="banner">
+            <div class="describe">
+                <h3>{{_title}}</h3>
+                <p>{{_text}}</p>
+            </div>
+            <img src="/assets/images/other-images/{{_img}}" alt="">
+        </div>
+        <!-- 访问量条 -->
+        {{inject 'zcyEvE/comps/infoline'}}
+        {{!-- 列表 --}}
+        <div class="list-container">
+            <div class="list-bread">
+                <span>
+                    <i class="icon iconfont icon-zhandianguanli"></i>
+                    <span>{{_title}}&nbsp;&gt;&nbsp; <span id="nav"></span></span>
+                </span>
+            </div>
+            <div class="list-body clearfix">
+                <div class="list-nav static">
+                    <div class="list-nav-title">{{_title}}</div>
+                    <div class="list-nav-content"></div>
+                </div>
+                <div class="list-content">
+                    <div class="list-logo">
+                        <div class="list-title">
+                            <h3>
+                                <i class="icon iconfont icon-notice"></i>
+                                <span class="list-title-text"></span>
+                            </h3>
+                        </div>
+                    </div>
+                    <!-- 文章 -->
+                    <div class="content-text" style="display:none;">
+                        111
+                    </div>
+                    <!-- 列表 -->
+                    <div class="content-list">
+                        <div class="content-list-container">
+                            <p>
+                                <a href="#" title="温州市三“推进”深化政府购买服务改革" target="_blank">
+                                    <span class="dot">·</span>温州市三“推进”深化政府购买服务改革
+                                </a>
+                                <span class="pubTime">2017-01-04</span>
+                            </p>
+                        </div>
+                        <p class="pagination-container">
+                            共有<span class=total></span>条
+                            每页显示：
+                            <select class="page-size">
+                                <option value=15>15</option>
+                                <option value=50>50</option>
+                                <option value=100>100</option>
+                            </select>
+                            <span hidden></span>
+                            <span class="pagination-list"></span>      
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 页尾 -->
+    {{inject 'zcyEvE/comps/footer'}}
+    {{inject 'zcyEvE/comps/gotopbar'}}
+{{/component}}

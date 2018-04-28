@@ -2,53 +2,25 @@
   <div class="list-header">
     <div class="list-logo">
       <div class="list-title">
-        <h3><i class="icon iconfont icon-notice"></i>新闻资讯</h3>
+        <h3><i class="icon iconfont {{_icon}}"></i>{{_title}}</h3>
       </div>
     </div>
-    <a href="#" class="style-a">更多&gt;&gt;</a>
+    <a href="#" class="style-a">{{_text}}&gt;&gt;</a>
   </div>
   <ul class="list-content">
     <li>
-      <span class="dot">·</span><a href="//www.zjzfcg.gov.cn/buyServiceExperience/2018-01-18/11870.html" title="浙江省温州市政府部门向市鞋革行业协会购买服务项目" target="_blank" class="underline shear">
-      浙江省温州市政府部门向市鞋革行业协会购买服务项目</a>
+      <span class="dot">·</span>
+      <a href="#" title="" target="_blank" class="underline shear">
+      浙江省会计学会 浙江省注册会计师协会关于开展2018年度会计科研课题研究报告会顺利召开</a>
+      <i class="iconfont icon-newchunse"></i>
       <span class="pub-time">2018-01-18</span>
     </li>
-    <li>
-      <span class="dot">·</span><a href="//www.zjzfcg.gov.cn/buyServiceExperience/2018-01-18/11869.html" title="浙江省湖州市交通运输局购买公共交通服务项目" target="_blank" class="underline shear">
-
-      浙江省湖州市交通运输局购买公共交通服务项目</a>
-      <span class="pub-time">2018-01-18</span>
-    </li>
-    <li>
-      <span class="dot">·</span><a href="//www.zjzfcg.gov.cn/buyServiceExperience/2018-01-18/11868.html" title="浙江省湖州市德清县司法局购买社区矫正服务项目" target="_blank" class="underline shear">
-
-      浙江省湖州市德清县司法局购买社区矫正服务项目</a>
-      <span class="pub-time">2018-01-18</span>
-    </li>
-    <li>
-      <span class="dot">·</span><a href="//www.zjzfcg.gov.cn/buyServiceExperience/2018-01-18/11867.html" title="浙江省绍兴市上虞区河建办购买保洁物业管理服务项目" target="_blank" class="underline shear">
-
-      浙江省绍兴市上虞区河建办购买保洁物业管理服务项目</a>
-      <span class="pub-time">2018-01-18</span>
-    </li>
-    <li>
-      <span class="dot">·</span><a href="//www.zjzfcg.gov.cn/buyServiceExperience/2018-01-18/11866.html" title="浙江省衢州市衢江区人社局购买职业培训服务项目" target="_blank" class="underline shear">
-
-      浙江省衢州市衢江区人社局购买职业培训服务项目</a>
-      <span class="pub-time">2018-01-18</span>
-    </li>
-    <li>
-      <span class="dot">·</span><a href="//www.zjzfcg.gov.cn/buyServiceExperience/2018-01-18/11866.html" title="浙江省衢州市衢江区人社局购买职业培训服务项目" target="_blank" class="underline shear">
-
-      浙江省衢州市衢江区人社局购买职业培训服务项目</a>
-      <span class="pub-time">2018-01-18</span>
-    </li>
-    <li>
-      <span class="dot">·</span><a href="//www.zjzfcg.gov.cn/buyServiceExperience/2018-01-18/11866.html" title="浙江省衢州市衢江区人社局购买职业培训服务项目" target="_blank" class="underline shear">
-
-      浙江省衢州市衢江区人社局购买职业培训服务项目</a>
-      <span class="pub-time">2018-01-18</span>
-    </li>
-
+    {{#each _DATA_}}
+      <li>
+        <span class="dot">·</span><a href="#" title="" target="_blank" class="underline shear">
+        关于举办中小会计师事务所新业务拓展培训班的通知</a>
+        <span class="pub-time">2018-01-18</span>
+      </li>
+    {{/each}}
   </ul> 
 {{/component}}

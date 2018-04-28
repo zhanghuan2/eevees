@@ -1,38 +1,18 @@
-
-class commonHeader {
-  constructor($) {
+const BaseComponent = require('base/base-component');
+const getDate=require('common/getDate/extend')
+class infoLine extends BaseComponent{
+  constructor() {
+    super()
   }
-  render(){
-    this.$el = $('.ZCY-eevee-comp-search');
-    let that = this;
-    let $forms = this.$el.find('#form-search');
-    let hrefbase = $forms.data("hrefbase");
-    this.$el.find(".search-tab a").on("click",function(){
-      that.$el.find(".search-tab a").removeClass("active");
-      $(this).addClass("active");
-      if($(this).hasClass("supplier-tab")){
-        that.$el.find(".search-input").attr("placeholder","输入您要搜索的供应商");
-        that.$el.find(".isSupplier").val(1);
-        $forms.attr("action",hrefbase + "/pages/supplierlist");
-      }else{
-        that.$el.find(".search-input").attr("placeholder","输入您要搜索的商品");
-        that.$el.find(".isSupplier").val(0);
-        $forms.attr("action",hrefbase + "/search");
-      }
-    })
-  }
-  searchSubmit(evt) {
-    let $forms = this.$el.find('#form-search');
-    let searchInput = $(".search-input.active");
-    if(!$.trim(searchInput.val())) {
-      evt.preventDefault();
-    }else{
-      let link = this.$el.find(".search-tab a").filter(".active");
-      if(link.hasClass("supplier-tab")){
-        let hrefbase = $forms.data("hrefbase");
-        $forms.attr("action",hrefbase + "/pages/supplierlist");
-      }
-    }
+  init(){
+    const date = new Date();
+      const _y = date.getFullYear();
+      const _m = date.getMonth()+1;
+      const _d = date.getDate();
+      const _nl = getDate();
+      const _w = new Array("日", "一", "二", "三", "四", "五", "六");
+      const week = new Date().getDay();
+      this.$el.find(".today").text(_y+"年"+_m+"月"+_d+"日 星期"+_w[week]+" 农历"+_nl);
   }
 }
-module.exports = commonHeader;
+module.exports = infoLine;

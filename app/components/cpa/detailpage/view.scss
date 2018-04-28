@@ -1,0 +1,104 @@
+
+.ZCY-cpa-detail{ 
+    .main-layout{
+        width: 1200px;
+        margin:0 auto;  
+    }
+    .detail-layout{
+        min-height: 600px;
+        .detail-bread{
+            border-bottom: 1px solid #dfdfdf;
+            padding: 10px 20px;
+            position: relative;
+            font-size: 14px;
+            p{
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .iconfont{
+                font-size: 16px;
+                padding: 0 12px 0 24px;
+            }
+        }
+        .detail-content-outer{
+            background-color: #ffffff;
+            position: relative;
+            width: 980px;
+            padding: 50px 122px;
+            border: 1px solid #dfdfdf;
+            margin: 50px auto;
+            .fun-btn{
+                width: 200px;
+                height: 100px;
+                position: absolute;
+                top: -35px;
+                right: 0px;
+                li{
+                    width: 43%;
+                    float: left;
+                    text-align: right;
+                    cursor: pointer;
+                    i{
+                        margin-right: 3px;
+                    }
+                    .iconfont{
+                        font-size: 14px;
+                    }
+                }
+                .qr-show{
+                    width: 50%;
+                    float: right;
+                    text-align: right;
+                    padding-right: 15px;
+                    cursor: pointer;
+                }
+            } 
+            &>h1{
+                line-height: 30px;
+                font-size: 24px;
+                text-align: center;
+            }
+            &>p{
+                font-size: 14px;
+                color: #666666;
+                padding: 10px 0;
+                text-align: center;
+                &>span{
+                    margin-right: 20px;
+                }
+            }
+            .detail-content{
+                min-height: 550px;
+                border-top: 1px dotted #999999;
+                padding: 20px 0;
+                position: relative;
+                overflow-x: auto;
+            }
+        }  
+    }
+    
+    @media print{
+        @page{
+            margin:2cm;
+            margin-bottom: 1cm;
+        }
+        .detail-content-outer{
+            &>h1{
+                line-height: 30px;
+                font-size: 24px;
+                text-align: center;
+            }
+            &>p{
+                font-size: 14px;
+                color: #666666;
+                padding: 10px 0;
+                text-align: center;
+                &>span{
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+    
+}

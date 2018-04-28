@@ -1,38 +1,20 @@
-
-class commonHeader {
-  constructor($) {
+const BaseComponent = require('base/base-component');
+class topLine extends BaseComponent{
+  constructor() {
+    super()
   }
-  render(){
-    this.$el = $('.ZCY-eevee-comp-search');
-    let that = this;
-    let $forms = this.$el.find('#form-search');
-    let hrefbase = $forms.data("hrefbase");
-    this.$el.find(".search-tab a").on("click",function(){
-      that.$el.find(".search-tab a").removeClass("active");
-      $(this).addClass("active");
-      if($(this).hasClass("supplier-tab")){
-        that.$el.find(".search-input").attr("placeholder","输入您要搜索的供应商");
-        that.$el.find(".isSupplier").val(1);
-        $forms.attr("action",hrefbase + "/pages/supplierlist");
-      }else{
-        that.$el.find(".search-input").attr("placeholder","输入您要搜索的商品");
-        that.$el.find(".isSupplier").val(0);
-        $forms.attr("action",hrefbase + "/search");
-      }
-    })
-  }
-  searchSubmit(evt) {
-    let $forms = this.$el.find('#form-search');
-    let searchInput = $(".search-input.active");
-    if(!$.trim(searchInput.val())) {
-      evt.preventDefault();
-    }else{
-      let link = this.$el.find(".search-tab a").filter(".active");
-      if(link.hasClass("supplier-tab")){
-        let hrefbase = $forms.data("hrefbase");
-        $forms.attr("action",hrefbase + "/pages/supplierlist");
-      }
+  init(){
+    const date = new Date();
+    const hour = date.getHours();
+    let _t = '';
+    if (hour <= 24&&hour>17||hour<5){
+        _t = "晚上好 ,"
+    }else if (hour < 12){
+        _t = "上午好 ,"
+    }else if (hour <= 17){
+        _t = "下午好 ,"
     }
+    this.$el.find('.top-welcome').prepend(_t)
   }
 }
-module.exports = commonHeader;
+module.exports = topLine;

@@ -12,6 +12,12 @@
             margin-top: -1px;
             display: table;
             cursor: pointer;
+            &:hover{
+                background-color: #2E90E1;
+                span{
+                    color: #fff;
+                }
+            }
             .icon-left{
                 padding-left: 16px;
                 width: 72px;

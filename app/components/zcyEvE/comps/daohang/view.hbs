@@ -1,41 +1,45 @@
 {{#component 'ZCY-eevee-comp-daohang evees-comp js-comp'}}
-    <div class="header-title">
-      <img src="/assets/images/other-images/logo.png" alt="">
-      <div>
-          <p>浙江省注册会计师协会</p>
-          <p>浙江省资产评估协会</p>
-      </div>
-    </div>
-    <ul class="header-nav js-head-menu" >
-        <li class="active">
-            <a href="#" rel_url="#">首页</a>
-        </li>
-        <li class="">
-            <a href="#" rel_url="#">协会概况</a>
-        </li>
-        <li class="">
-            <a href="#" rel_url="#">行业党建</a>
-        </li>
-        <li class="">
-            <a href="#" rel_url="#">综合管理</a>
-        </li>
-        <li class="">
-            <a href="#" rel_url="#">会员管理</a>
-        </li>
-        <li class="">
-            <a href="#" rel_url="#">业务指导</a>
-        </li>
-        <li class="">
-            <a href="#" rel_url="#">执业监督</a>
-        </li>
-        <li class="">
-            <a href="#" rel_url="#">考试之窗</a>
-        </li>
-        <li class="">
-            <a href="#" rel_url="#">人才培养</a>
-        </li>
-        <li class="">
-            <a href="#" rel_url="#">增值服务</a>
-        </li>
-    </ul>
+    <div class="inner-container" data-float="{{_float}}">
+        <div class="header-title">
+            <a href="#" class="fl">
+                <img src="/assets/images/other-images/logo.png" alt="">
+            </a>
+            <div>
+                <p>浙江省注册会计师协会</p>
+                <p>浙江省资产评估协会</p>
+            </div>
+        </div>
+        <ul class="header-nav js-head-menu" >
+            <li class="{{#equals _current "首页"}}active{{/equals}}">
+                <a href="/cpa/home" rel_url="#">首页</a>
+            </li>
+            <li class="{{#equals _current "协会概况"}}active{{/equals}}">
+                <a href="/cpa/institute_survey" rel_url="#">协会概况</a>
+            </li>
+            <li class="{{#equals _current "行业党建"}}active{{/equals}}">
+                <a href="/cpa/party_building" rel_url="#">行业党建</a>
+            </li>
+            <li class="{{#equals _current "综合管理"}}active{{/equals}}">
+                <a href="/cpa/integrated_manage" rel_url="#">综合管理</a>
+            </li>
+            <li class="{{#equals _current "会员管理"}}active{{/equals}}">
+                <a href="/cpa/leaguer_manage" rel_url="#">会员管理</a>
+            </li>
+            <li class="{{#equals _current "业务指导"}}active{{/equals}}">
+                <a href="/cpa/business_guidance" rel_url="#">业务指导</a>
+            </li>
+            <li class="{{#equals _current "执业监督"}}active{{/equals}}">
+                <a href="/cpa/practice_supervision" rel_url="#">执业监督</a>
+            </li>
+            <li class="{{#equals _current "考试之窗"}}active{{/equals}}">
+                <a href="/cpa/examinatione" rel_url="#">考试之窗</a>
+            </li>
+            <li class="{{#equals _current "人才培养"}}active{{/equals}}">
+                <a href="/cpa/personnel_training" rel_url="#">人才培养</a>
+            </li>
+            <li class="{{#equals _current "增值服务"}}active{{/equals}}">
+                <a href="/cpa/value_added_service" rel_url="#">增值服务</a>
+            </li>
+        </ul>
+    </div>   
 {{/component}}

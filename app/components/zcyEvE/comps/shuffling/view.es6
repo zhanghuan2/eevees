@@ -1,31 +1,30 @@
-/**
- * 图片新闻
- */
-class switchImg{
+const BaseComponent = require('base/base-component');
+class switchImg extends BaseComponent{
     constructor(){
+        super()
+    }
+    init(){
         this.count=0;
-        this.$container=$('.js-shuffling-pic');
-        this.$itemBox=$('.shuffling-pic .img');
+        this.$itemBox=this.$el.find('.img');
         this.$item=this.$itemBox.find('li');
-        this.$btnBox=$('.shuffling-pic .num');
+        this.$btnBox=this.$el.find('.num');
         this.$btn=null;
-        this.init();
-        this.bindEvent();
+        this.componentInit()
     }
 
-    init(){
+    componentInit(){
         let that=this;
-        var clone = this.$item.first().clone();//克隆第一张图片
+        var clone = that.$item.first().clone();//克隆第一张图片
         that.$itemBox.append(clone);//复制到列表最后
-        that.size = this.$item.length+1;
+        that.size = that.$item.length+1;
         for (var j = 0; j < that.size-1; j++) {
-            this.$btnBox.append("<li></li>");
+            that.$btnBox.append("<li></li>");
         }
         that.$btn=that.$btnBox.find('li');
         that.$btn.first().addClass("on");
         that.t = setInterval(function () { that.count++; that.move();},5000);
+        that.bindEvent()
     }
-
     bindEvent(){
         let that=this;
         that.$btn.hover(function () {
@@ -34,7 +33,7 @@ class switchImg{
             that.$itemBox.stop().animate({ left: -index * 440 }, 440);
             $(this).addClass("on").siblings().removeClass("on");
         });
-        that.$container.hover(function () {
+        that.$el.hover(function () {
             clearInterval(that.t);//鼠标悬停时清除定时器
         }, function () {
             that.t = setInterval(function () { that.count++; that.move(); }, 5000); //鼠标移出时清除定时器
@@ -44,18 +43,18 @@ class switchImg{
     move() {
         let that=this;
         if (that.count == that.size) {
-            this.$itemBox.css({ left: 0 });
+            that.$itemBox.css({ left: 0 });
             that.count = 1;
         }
         if (that.count == -1) {
-            this.$itemBox.css({ left: -(that.size - 1) * 440 });
+            that.$itemBox.css({ left: -(that.size - 1) * 440 });
             that.count = that.size - 2;
         }
-        this.$itemBox.stop().animate({ left: -that.count * 440 }, 440);
+        that.$itemBox.stop().animate({ left: -that.count * 440 }, 440);
         if (that.count == that.size - 1) {
-            this.$btn.eq(0).addClass("on").siblings().removeClass("on");
+            that.$btn.eq(0).addClass("on").siblings().removeClass("on");
         } else {
-            this.$btn.eq(that.count).addClass("on").siblings().removeClass("on");
+            that.$btn.eq(that.count).addClass("on").siblings().removeClass("on");
         }
     }
 }

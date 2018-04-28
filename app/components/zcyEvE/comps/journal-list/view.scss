@@ -26,7 +26,7 @@
             i.iconfont {
                 position: relative;
                 top: 2px;
-                margin-right: 6px;
+                margin-right: 2px;
             }
             .list-title{
                 background-color: #2E90E1;
@@ -67,6 +67,7 @@
                 line-height: 30px;
                 text-align: center;
                 color: #000;
+                cursor: pointer;
                 &.active{
                     position: relative;
                     background-color: #A4251F;

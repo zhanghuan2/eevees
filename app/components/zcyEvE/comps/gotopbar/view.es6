@@ -1,38 +1,31 @@
-
-class commonHeader {
-  constructor($) {
+const BaseComponent = require('base/base-component');
+class goTop extends BaseComponent{
+  constructor(){
+      super({
+        events: {                      
+          "click .gotop": 'gotopEvent'
+        }
+      })
   }
-  render(){
-    this.$el = $('.ZCY-eevee-comp-search');
-    let that = this;
-    let $forms = this.$el.find('#form-search');
-    let hrefbase = $forms.data("hrefbase");
-    this.$el.find(".search-tab a").on("click",function(){
-      that.$el.find(".search-tab a").removeClass("active");
-      $(this).addClass("active");
-      if($(this).hasClass("supplier-tab")){
-        that.$el.find(".search-input").attr("placeholder","输入您要搜索的供应商");
-        that.$el.find(".isSupplier").val(1);
-        $forms.attr("action",hrefbase + "/pages/supplierlist");
-      }else{
-        that.$el.find(".search-input").attr("placeholder","输入您要搜索的商品");
-        that.$el.find(".isSupplier").val(0);
-        $forms.attr("action",hrefbase + "/search");
-      }
+
+  init(){
+    this.$container=this.$el.find('.gotop-box');
+    this.flag=true;
+    let that=this;
+    $(window).on('scroll',function(){
+        const _scrollTop = $(document).scrollTop()
+        if(_scrollTop > 1&&that.flag){
+            that.flag=false;
+            that.$container.slideDown('fast')
+        }else if(_scrollTop <=1){
+            that.flag=true;
+            that.$container.slideUp('fast')
+        }
     })
   }
-  searchSubmit(evt) {
-    let $forms = this.$el.find('#form-search');
-    let searchInput = $(".search-input.active");
-    if(!$.trim(searchInput.val())) {
-      evt.preventDefault();
-    }else{
-      let link = this.$el.find(".search-tab a").filter(".active");
-      if(link.hasClass("supplier-tab")){
-        let hrefbase = $forms.data("hrefbase");
-        $forms.attr("action",hrefbase + "/pages/supplierlist");
-      }
-    }
+
+  gotopEvent(){
+    $('html , body').animate({scrollTop: 0},300)
   }
 }
-module.exports = commonHeader;
+module.exports = goTop;

@@ -1,0 +1,91 @@
+{{#component "ZCY-cpa-index js-comp"}}
+    {{inject 'zcyEvE/comps/header'}}
+    {{inject 'zcyEvE/comps/daohang' _float=true}}
+    {{inject 'zcyEvE/comps/banner'}}
+    <!-- 访问量条 -->
+    {{inject 'zcyEvE/comps/infoline'}}
+    <!-- 主体部分 -->
+    <div class="clearfix main-layout">
+        <!-- 全站搜索 -->
+        <div class="g_search">
+            {{inject 'zcyEvE/comps/search'}}
+        </div>
+        <!-- 图片新闻、通知公告 -->
+        <div class="clearfix">
+            <div id="shuffling">
+                {{inject 'zcyEvE/comps/shuffling'}}
+            </div>
+            <div id="announcement-outer">
+                <div class="announcement-container">
+                    {{#inject 'zcyEvE/comps/announcement'}}
+                    {
+                        "_icon":"icon-notice",
+                        "_text":"更多",
+                        "_title":"通知公告",
+                        "_DATA_":[1,2,3,4,5,6]
+                    }
+                    {{/inject}}
+                </div>
+                <div class="navs-container">
+                    {{inject 'zcyEvE/comps/quickentry-x'}}
+                </div>
+            </div>
+        </div>
+        <!-- 行业动态、快速入口 -->
+        <div class="clearfix" id="industry-outer">
+            <div class="industry-box">
+                {{#inject 'zcyEvE/comps/announcement'}}
+                {
+                    "_icon":"icon-dengjushangpin",
+                    "_text":"查看全部",
+                    "_title":"行业动态",
+                    "_DATA_":[1,2,3,4,5,6,7,8,9]
+                }
+                {{/inject}}
+            </div>
+            <div id="quick-entry">
+                {{inject 'zcyEvE/comps/quickentry-y'}}
+            </div>
+        </div>
+        <!-- 培训信息、人才招聘 -->
+        <div class="clearfix" id="train-outer">
+            <div id="train-info">
+                {{#inject 'zcyEvE/comps/announcement'}}
+                {
+                    "_icon":"icon-zhuanjiaguanli",
+                    "_text":"更多",
+                    "_title":"培训信息",
+                    "_DATA_":[1,2,3,4,5,6,7,8,9]
+                }
+                {{/inject}}
+            </div>
+            <div id="recruit-outer">
+                {{#inject 'zcyEvE/comps/announcement'}}
+                {
+                    "_icon":"icon-xinxiziliaoweihu",
+                    "_text":"更多",
+                    "_title":"人才招聘",
+                    "_DATA_":[1,2,3,4,5,6,7,8,9]
+                }
+                {{/inject}}
+            </div>
+        </div>
+        <!-- 协会会刊、导航入口 -->
+        <div class="clearfix" id="pub-outer">
+            <div id="pub-box">
+                {{inject 'zcyEvE/comps/journal-list'}}
+            </div>
+            <div id="tab-entry">
+                {{inject 'zcyEvE/comps/quickentry-x2'}}
+            </div>
+        </div>
+        <!-- 友情链接 -->
+        {{inject 'zcyEvE/comps/sitemap'}}
+        {{!-- 返回顶部 --}}
+        {{inject 'zcyEvE/comps/gotopbar'}}
+    </div>
+    <!-- 页尾 -->
+    {{inject 'zcyEvE/comps/footer'}}
+
+    
+{{/component}}

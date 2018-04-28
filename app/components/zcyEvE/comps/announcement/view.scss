@@ -3,7 +3,6 @@
     height: 100%;
     border: 1px solid #C6C5C5;
     .list-header{
-        height: 38px;
         position: relative;
         &>a{
             text-decoration: none;
@@ -25,7 +24,24 @@
                 position: relative;
                 top: 2px;
                 margin-right: 6px;
+                &.icon-notice{
+                    font-size: 16px;
+                    top: 1px;
+                }
+                &.icon-dengjushangpin{
+                    top:1px;
+                    font-size: 21px
+                }
+                &.icon-zhuanjiaguanli{
+                    font-size: 18px;
+                    top: 1px;
+                }
+                &.icon-xinxiziliaoweihu{
+                    font-size: 21px;
+                    top: 2px;
+                }
             }
+            
             .list-title{
                 background-color: #2E90E1;
                 height: 32px;
@@ -42,7 +58,7 @@
         
     }
     .list-content{
-        padding: 21px 0 0 30px;
+        padding: 17px 0 0 22px;
         overflow: hidden;
         li{
             height: 30px;
@@ -56,18 +72,24 @@
             }
             a{
                 float: left;
-                color: #333;
+                color: inherit;
                 line-height: 30px;
-                max-width: 79%;
-                width: 79%;
+                max-width: 72%;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;
+                margin-right: 10px;
+            }
+            .icon-newchunse{
+                color: #FF625C;
             }
             .pub-time{
                 float: right;
                 line-height: 30px;
                 color: #9b9b9b;
+            }
+            &:hover{
+                color: #2E90E1;
             }
         }
     }

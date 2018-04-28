@@ -12,6 +12,7 @@
             img{
                 width: 100%;
                 height: 100%;
+                border-radius: 6px;
             }
             .entry-title{
                 position: absolute;
@@ -64,7 +65,7 @@
             .iconfont{
                 color: #6FB6AA;
                 font-size: 64px;
-                bottom: 16px;
+                bottom: 13px;
                 right: 10px;
             }
         }
@@ -79,6 +80,7 @@
         }
         .entry-train{
             background-color: #F69581;
+            margin-top: 10px;
             .iconfont{
                 color: #E26951;
                 font-size: 64px;
@@ -89,6 +91,7 @@
         .entry-leaguer{
             background-color: #B7D6EC;
             color: #4986A7;
+            margin-top: 10px;
             .iconfont{
                 width: 39px;
                 color: #64ABD3;

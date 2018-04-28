@@ -152,6 +152,7 @@
             context = context || {};
             context[this.CONST.COMP_PATH] = path;
             try {
+                console.log('------11111-----:', context)
                 return renderFromRealPath(getComponentViewPath(path), context);
             } catch (_error) {
                 err = _error;

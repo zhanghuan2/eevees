@@ -1,0 +1,85 @@
+
+.ZCY-cpa-index{ 
+    .main-layout{
+        width: 1200px;
+        margin:0 auto;
+        // background: red;
+        .g_search{
+            height: 60px;
+            width: 100%;
+            padding-left: 580px;
+            padding-top: 10px;
+        }
+        #shuffling{
+            width: 440px;
+            height: 418px;
+            float: left;
+        }
+        #announcement-outer{
+            float: right;
+            width: 740px;
+            height: 418px;
+            .announcement-container{
+                height: 280px;
+            }
+            .navs-container{
+                height: 137px;
+                margin-top: 1px;
+            }
+    
+        }
+        #industry-outer{
+            height: 441px;
+            padding-top: 21px;
+            .industry-box{
+                float: left;
+                height: 420px;
+                width: 920px;
+                .list-content{
+                    padding-top:37px;
+                    
+                }
+            }
+            #quick-entry{
+                float: right;
+                width: 260px;
+                height: 420px;
+            }
+        }
+        #train-outer{
+            height: 381px;
+            padding-top: 20px;
+            #train-info{
+                float: left;
+                height: 360px;
+                width: 590px;
+                .list-content{
+                    padding-top: 12px;
+                }
+            }
+            #recruit-outer{
+                float: right;
+                width: 590px;
+                height: 360px;
+                .list-content{
+                    padding-top: 12px;
+                }
+            }
+        }
+        #pub-outer{
+            height: 381px;
+            padding-top: 20px;
+            #pub-box{
+                float: left;
+                width: 300px;
+                height: 360px;
+            }
+            #tab-entry{
+                float: right;
+                width: 880px;
+                height: 360px;
+            }
+        }
+    }
+    
+}
