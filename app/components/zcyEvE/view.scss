@@ -128,6 +128,7 @@
     }
   }
   .eevee-grids {
+    min-height: 50px;
     .controller-mask{
       position: absolute;
       top: 0;
@@ -136,13 +137,31 @@
       left: 0;
       background-color: rgba(0, 0, 0, 0.3);
     }
+    .choose-line {
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.5);
+      padding: 0 5px;
+      border: 1px solid #55bf67;
+      z-index: 999;
+      border-radius: 12px;
+      &:hover{
+        cursor: pointer;
+      }
+    }
+    &.boder-evt{
+      outline: 3px solid #55bf67;
+    }
   }
   .disnone {
     display: none;
   }
 }
 .ZCY-eevee-page-body {
+  position: relative;
   text-align: center;
+  .eevee-grids{
+    border: 0;
+  }
   .eevee-clu-line {
     text-align: left;
   }
@@ -159,7 +178,45 @@
     width: 1200px;
     text-align: left;
   }
+  .closeReview {
+    position: absolute;
+    padding: 6px 15px;
+    font-size: 20px;
+    background: #dff0d8;
+    color: #ffffff;
+    right: 11px;
+    top: 10px;
+    border-radius: 20px;
+    &:hover{
+      cursor: pointer;
+    }
+  }
 }
+.ZCY-eevee-page-controller{
+  .editor-menu{
+    button {
+      border: 1px solid rgb(74,144,226);
+      color: rgb(74,144,226);
+      padding: 4px 21px;
+      border-radius: 5px;
+      &.js-page-save{
+        background: rgb(74,144,226);
+        color: #ffffff;
+      }
+    }
+  }
+}
+.zcyEvE-modal {
+  table{
+    display: block;
+    tr{
+      td{
+        padding: 10px;
+      }
+    }
+  }
+}
+
 
 
 
