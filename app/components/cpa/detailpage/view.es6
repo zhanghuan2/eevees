@@ -27,6 +27,7 @@ class detailPage{
                 'core': {
                     data:treeData[that.current],
                     animation:300,
+                    expand_selected_onload:true
                 }
             }
         )

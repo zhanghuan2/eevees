@@ -2,10 +2,6 @@ module.exports={
     '协会概况':[
         {
             'text' : '协会简介',
-            'state' : {
-                'opened' : true,
-                'selected' : true
-            },
             'name':'xhjz'
         },
         {
@@ -25,24 +21,13 @@ module.exports={
         {
             'id':1,
             'text' : '注册会计师',
-            'state' : {
-                'opened' : true,
-                'selected' : false
-            },
             'children' : [
                 {   'id':'1.1',
                     'text' : '执业会员',
-                    'state' : {
-                        'opened' : true,
-                        'selected' : false
-                    },
                     'children':[
                         {   
                             'id':'1.1.1',
-                            'text':'管理制度',
-                            'state' : {
-                                'selected' : true
-                            },
+                            'text':'管理制度'
                         },
                         {
                             'id':'1.1.2',
@@ -109,10 +94,6 @@ module.exports={
     '行业党建':[
         {
             'text' : '通知公告',
-            'state' : {
-                'opened' : true,
-                'selected' : true
-            },
             'name':'xhjz'
         },
         {
@@ -140,10 +121,6 @@ module.exports={
     '综合管理':[
         {
             'text' : '法律法规',
-            'state' : {
-                'opened' : true,
-                'selected' : true
-            },
             'name':'xhjz'
         },
         {
@@ -166,17 +143,10 @@ module.exports={
     '业务指导':[
         {
             'text' : '注册会计师',
-            'state' : {
-                'opened' : true
-            },
             'name':'xhjz',
             'children':[
                 {
-                    'text':'最新准则',
-                    'state' : {
-                        'opened' : true,
-                        'selected' : true
-                    },
+                    'text':'最新准则'
                 },
                 {
                     'text':'专业法规'
@@ -220,17 +190,10 @@ module.exports={
     '执业监督':[
         {
             'text' : '注册会计师',
-            'state' : {
-                'opened' : true
-            },
             'name':'xhjz',
             'children':[
                 {
-                    'text':'监管制度',
-                    'state' : {
-                        'opened' : true,
-                        'selected' : true
-                    },
+                    'text':'监管制度'
                 },
                 {
                     'text':'监管信息'
@@ -259,16 +222,10 @@ module.exports={
     '考试之窗':[
         {
             'text' : '注册会计师',
-            'state' : {
-                'opened' : true
-            },
             'name':'xhjz',
             'children':[
                 {
-                    'text':'考试制度',
-                    'state' : {
-                        'selected' : true
-                    },
+                    'text':'考试制度'
                 },
                 {
                     'text':'考试信息'
@@ -291,16 +248,10 @@ module.exports={
     '人才培养':[
         {
             'text' : '注册会计师',
-            'state' : {
-                'opened' : true
-            },
             'name':'xhjz',
             'children':[
                 {
-                    'text':'培训制度',
-                    'state' : {
-                        'selected' : true
-                    },
+                    'text':'培训制度'
                 },
                 {
                     'text':'培训信息'
@@ -329,9 +280,6 @@ module.exports={
     '增值服务':[
         {
             'text' : '金融服务',
-            'state' : {
-                'selected' : true
-            },
             'name':'xhjz'
         },
         {
@@ -353,6 +301,94 @@ module.exports={
         {
             'text' : '会员疗休养',
             'name':'lxwm'
+        }
+    ],
+    '首页资讯':[
+        {
+            'id':'0',
+            'text' : '图片新闻',
+            'name':'homepage-imgnews'
+        },
+        {
+            'id':'1',
+            'text' : '通知公告'
+        },
+        {
+            'id':'2',
+            'text' : '行业动态'
+        },
+        {
+            'id':'3',
+            'text' : '培训信息',
+            'name':'ldjg',
+            'state' : {
+                'selected' :false
+            }
+        },
+        {
+            'id':'4',
+            'text' : '人才招聘',
+            'name':'lxwm',
+            'state' : {
+                'selected' :false
+            }
+        }
+    ],
+    '下载专区':[
+        {
+            'text' : '会员管理',
+            'name':'leaguer',
+            'type':0,
+            'state' : {
+                'selected' :true
+            }
+        },
+        {
+            'text' : '注册会计师考试',
+            'name':'leaguer',
+            'type':2,
+            'state' : {
+                'selected' :false
+            }
+        }
+    ],
+    '相关链接':[
+        {
+            'id':0,
+            'text' : '事务所（评估机构）',
+            'name':'link'
+        },
+        {
+            'id':1,
+            'text' : '各省注册会计师协会',
+            'name':'link',
+            'state' : {
+                'selected' :false
+            }
+        },
+        {
+            'id':2,
+            'text' : '各省资产评估协会',
+            'name':'link',
+            'state' : {
+                'selected' :false
+            }
+        },
+        {
+            'id':3,
+            'text' : '政府相关部门',
+            'name':'link',
+            'state' : {
+                'selected' :false
+            }
+        },
+        {
+            'id':4,
+            'text' : '行业相关单位',
+            'name':'link',
+            'state' : {
+                'selected' :false
+            }
         }
     ]
 

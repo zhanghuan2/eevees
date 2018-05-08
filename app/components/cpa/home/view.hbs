@@ -13,7 +13,10 @@
         <!-- 图片新闻、通知公告 -->
         <div class="clearfix">
             <div id="shuffling">
-                {{inject 'zcyEvE/comps/shuffling'}}
+                {{#inject 'zcyEvE/comps/shuffling'}}{
+                    "_linkUrl":"/cpa/homepage_info?mid=0"
+                }
+                {{/inject}}
             </div>
             <div id="announcement-outer">
                 <div class="announcement-container">
@@ -22,7 +25,8 @@
                         "_icon":"icon-notice",
                         "_text":"更多",
                         "_title":"通知公告",
-                        "_DATA_":[1,2,3,4,5,6]
+                        "_DATA_":[1,2,3,4,5,6],
+                        "_linkUrl":"/cpa/homepage_info?mid=1"
                     }
                     {{/inject}}
                 </div>
@@ -39,7 +43,8 @@
                     "_icon":"icon-dengjushangpin",
                     "_text":"查看全部",
                     "_title":"行业动态",
-                    "_DATA_":[1,2,3,4,5,6,7,8,9]
+                    "_DATA_":[1,2,3,4,5,6,7,8,9],
+                    "_linkUrl":"/cpa/homepage_info?mid=2"
                 }
                 {{/inject}}
             </div>
@@ -55,7 +60,8 @@
                     "_icon":"icon-zhuanjiaguanli",
                     "_text":"更多",
                     "_title":"培训信息",
-                    "_DATA_":[1,2,3,4,5,6,7,8,9]
+                    "_DATA_":[1,2,3,4,5,6,7,8,9],
+                    "_linkUrl":"/cpa/homepage_info?mid=3"
                 }
                 {{/inject}}
             </div>
@@ -65,7 +71,8 @@
                     "_icon":"icon-xinxiziliaoweihu",
                     "_text":"更多",
                     "_title":"人才招聘",
-                    "_DATA_":[1,2,3,4,5,6,7,8,9]
+                    "_DATA_":[1,2,3,4,5,6,7,8,9],
+                    "_linkUrl":"/cpa/homepage_info?mid=4"
                 }
                 {{/inject}}
             </div>

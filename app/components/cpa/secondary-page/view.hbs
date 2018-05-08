@@ -3,13 +3,15 @@
     {{inject 'zcyEvE/comps/daohang' _current=_title}}
     <!-- 主体部分 -->
     <div class="clearfix main-layout">
-        <div class="banner">
-            <div class="describe">
-                <h3>{{_title}}</h3>
-                <p>{{_text}}</p>
+        {{#unless _hideBanner}}
+            <div class="banner">
+                <div class="describe">
+                    <h3>{{_title}}</h3>
+                    <p>{{_text}}</p>
+                </div>
+                <img src="/assets/images/other-images/{{_img}}" alt="">
             </div>
-            <img src="/assets/images/other-images/{{_img}}" alt="">
-        </div>
+        {{/unless}}
         <!-- 访问量条 -->
         {{inject 'zcyEvE/comps/infoline'}}
         {{!-- 列表 --}}
@@ -41,13 +43,8 @@
                     <!-- 列表 -->
                     <div class="content-list">
                         <div class="content-list-container">
-                            <p>
-                                <a href="#" title="温州市三“推进”深化政府购买服务改革" target="_blank">
-                                    <span class="dot">·</span>温州市三“推进”深化政府购买服务改革
-                                </a>
-                                <span class="pubTime">2017-01-04</span>
-                            </p>
                         </div>
+                        {{#unless _hidePagination}}
                         <p class="pagination-container">
                             共有<span class=total></span>条
                             每页显示：
@@ -59,6 +56,7 @@
                             <span hidden></span>
                             <span class="pagination-list"></span>      
                         </p>
+                        {{/unless}}
                     </div>
                 </div>
             </div>

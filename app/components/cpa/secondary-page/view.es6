@@ -1,6 +1,16 @@
 const BaseComponent = require('base/base-component');
 const treeData = require('common/treeData');
 const Spinner =require('common/spin/extend');
+const Query=require('common/query/extend');
+
+const detailListTpl = Handlebars.templates['cpa/secondary-page/templates/detailList'];
+const detailImgListTpl = Handlebars.templates['cpa/secondary-page/templates/detailList'];
+const downloadListTpl = Handlebars.templates['cpa/secondary-page/templates/downloadList'];
+const linkPageTpl = Handlebars.templates['cpa/secondary-page/templates/linkPage'];
+const journalTpl = Handlebars.templates['cpa/secondary-page/templates/journalList'];
+const listTpl = Handlebars.templates['cpa/secondary-page/templates/listTpl'];
+const imgnewsTpl = Handlebars.templates['cpa/secondary-page/templates/imgnewsTpl'];
+
 
 class secondaryPage extends BaseComponent{
     constructor(){
@@ -11,6 +21,7 @@ class secondaryPage extends BaseComponent{
         })
     }
     init(){
+        this.query=new Query();
         this.current=this.$el.find('.list-nav-title').text().trim();
         this.pageNo=1;     
         this.$bread=this.$el.find('.list-bread');
@@ -25,6 +36,17 @@ class secondaryPage extends BaseComponent{
 
     initTree(){
         let that=this;
+        let mid=that.query.get('mid');
+        let param=null;
+        if(that.current!=="协会会刊"){
+            param=treeData[that.current];
+        }else{
+            param=that.getJournalTreeList();
+        }
+        that.initTreeSelected(param,mid);
+        /**
+         * 菜单
+         */
         that.$nav.find('.list-nav-content').jstree(
             {
                 'plugins': ['conditionalselect','wholerow'],
@@ -32,7 +54,7 @@ class secondaryPage extends BaseComponent{
                     return node.children.length === 0
                 },
                 'core': {
-                    data:treeData[that.current],
+                    data:param,
                     animation:300,
                 }
             }
@@ -44,9 +66,11 @@ class secondaryPage extends BaseComponent{
                 let text=data.instance.get_node(data.instance.get_selected()[0]).original.text
                 that.$content.find('.list-title-text').text(text);
             }
-            let navtext=that.getNavText(data.instance,data.instance.get_node(data.instance.get_selected()[0]).parents)
-            that.$bread.find('#nav').text(navtext);
+            if(data.instance.get_selected().length>0){
+                let navtext=that.getNavText(data.instance,data.instance.get_node(data.instance.get_selected()[0]).parents)
+                that.$bread.find('#nav').text(navtext);
 
+            }
             that.search(true,name);
         })
         .on('before_open.jstree',function(event,data){
@@ -71,7 +95,6 @@ class secondaryPage extends BaseComponent{
             let name=data.instance.get_node(data.instance.get_selected()[0]).original.name;
             let navtext=that.getNavText(data.instance,data.instance.get_node(data.instance.get_selected()[0]).parents)
             that.$bread.find('#nav').text(navtext);
-
             that.search(true,name);
         })
     }
@@ -134,9 +157,13 @@ class secondaryPage extends BaseComponent{
         that.$pageDom.find('.pagination-list').pagination(options)   
     }
 
-    search (isRefresh) {
+    search (isRefresh,name) {
         let that = this;
         let spinner=null;
+        if(!name){
+            let tree=that.$nav.find('.list-nav-content').jstree(true);
+            name=tree.get_node(tree.get_selected()).original.name;
+        }
 		const opts = {
             type: 'GET',
             url: '',
@@ -178,79 +205,44 @@ class secondaryPage extends BaseComponent{
         //     spinner.stop()
         // })
         that.$pageDom.find('.total').text(100);
-        let result=[{
-            text:'关于2018年度“自我声明公开企业产品标准监督抽查”项目的竞争性磋商公告[杭州泛亚工程咨询有限公司]',
-            pubTime:'2018-09-22'
-        },
-        {
-            text:'关于2018年度“自我声明公开企业产品标准监督抽查”项目的竞争性磋商公告[杭州泛亚工程咨询有限公司]',
-            pubTime:'2018-09-22'
-        },
-        {
-            text:'关于2018年度“自我声明公开企业产品标准监督抽查”项目的竞争性磋商公告[杭州泛亚工程咨询有限公司]',
-            pubTime:'2018-09-22'
-        },
-        {
-            text:'关于2018年度“自我声明公开企业产品标准监督抽查”项目的竞争性磋商公告[杭州泛亚工程咨询有限公司]',
-            pubTime:'2018-09-22'
-        },
-        {
-            text:'关于2018年度“自我声明公开企业产品标准监督抽查”项目的竞争性磋商公告[杭州泛亚工程咨询有限公司]',
-            pubTime:'2018-09-22'
-        },
-        {
-            text:'关于2018年度“自我声明公开企业产品标准监督抽查”项目的竞争性磋商公告[杭州泛亚工程咨询有限公司]',
-            pubTime:'2018-09-22'
-        },
-        {
-            text:'关于2018年度“自我声明公开企业产品标准监督抽查”项目的竞争性磋商公告[杭州泛亚工程咨询有限公司]',
-            pubTime:'2018-09-22'
-        },
-        {
-            text:'关于2018年度“自我声明公开企业产品标准监督抽查”项目的竞争性磋商公告[杭州泛亚工程咨询有限公司]',
-            pubTime:'2018-09-22'
-        },
-        {
-            text:'关于2018年度“自我声明公开企业产品标准监督抽查”项目的竞争性磋商公告[杭州泛亚工程咨询有限公司]',
-            pubTime:'2018-09-22'
-        },
-        {
-            text:'关于2018年度“自我声明公开企业产品标准监督抽查”项目的竞争性磋商公告[杭州泛亚工程咨询有限公司]',
-            pubTime:'2018-09-22'
-        },
-        {
-            text:'关于2018年度“自我声明公开企业产品标准监督抽查”项目的竞争性磋商公告[杭州泛亚工程咨询有限公司]',
-            pubTime:'2018-09-22'
-        },
-        {
-            text:'关于2018年度“自我声明公开企业产品标准监督抽查”项目的竞争性磋商公告[杭州泛亚工程咨询有限公司]',
-            pubTime:'2018-09-22'
-        },
-        {
-            text:'关于2018年度“自我声明公开企业产品标准监督抽查”项目的竞争性磋商公告[杭州泛亚工程咨询有限公司]',
-            pubTime:'2018-09-22'
-        },
-        {
-            text:'关于2018年度“自我声明公开企业产品标准监督抽查”项目的竞争性磋商公告[杭州泛亚工程咨询有限公司]',
-            pubTime:'2018-09-22'
-        },
-        {
-            text:'关于2018年度“自我声明公开企业产品标准监督抽查”项目的竞争性磋商公告[杭州泛亚工程咨询有限公司]',
-            pubTime:'2018-09-22'
-        }]
 
         let str="";
         spinner=new Spinner({top:'40%'}).spin($('.content-list')[0]);
+        
         for(let i=0,len=that.$pageSizeSel.val();i<len;i++){
-            str+=`<p>
-                <a href="./detail.html" title="" target="_blank">
-                    <span class="dot">·</span>${result[0].text}
-                </a>
-                <span class="pubTime">${result[0].pubTime}</span>
-            </p>`
+            // if(name==="homepage-imgnews"){
+            //     str+=`<div class="detail-imgnews clearfix">
+            //         <img src="/assets/images/other-images/图片新闻实例.png"/>
+            //         <div class="imgnews-pullright">
+            //             <i class="iconfont icon-newchunse"></i>
+            //             <p class="imgnews-title">关于进一步明确网络申请注册会计师注册有关事项的通知</p>
+            //             <span class="imgnews-pubdate">2018-01-12</span>
+            //         </div>
+            //     </div>`
+            // }else{
+            //     str+=`<p class="list-item">
+            //     <a href="/cpa/detail" title="" target="_blank">
+            //         <span class="dot">·</span>${result[0].text}
+            //     </a>
+            //     <span class="pubTime">${result[0].pubTime}</span>
+            //     </p>`
+            // }
+            
         }
-        that.$content.find('.content-list-container').html(str);
-        if(isRefresh){
+        if(name==="leaguer"){
+            that.$content.find('.content-list-container').html(downloadListTpl);
+        }else if(name==="link"){
+            that.$content.find('.content-list-container').html(linkPageTpl);
+        }else if(name==="journal"){
+            that.$content.find('.content-list-container').html(journalTpl);
+        }else if(name==="homepage-imgnews"){
+            that.$content.find('.content-list-container').html(imgnewsTpl);
+        }
+        else{
+            that.$content.find('.content-list-container').html(listTpl);
+        }
+        
+        if(isRefresh&&that.$pageDom.length>0){
             that.initPagination(100);
         }
         setTimeout(function(){
@@ -258,6 +250,54 @@ class secondaryPage extends BaseComponent{
         },100)
         
     }
+
+    /**
+     * 初始化tree默认选中
+     * @param obj tree的data对象
+     * @param mid 要选中treenode的id
+     */
+    initTreeSelected(obj,mid){
+        if(!mid){
+            c(obj);
+        }else{
+            !b(obj,mid)&&c(obj);
+        }
+
+        function b(o,mid){
+            for(let i = 0,len=o.length;i<len;i++){
+                let item=o[i];
+                if(item.id==mid){
+                    if(item.state){
+                        item.state.selected=true;
+                    }else{
+                        item.state={};
+                        item.state.selected=true;
+                    }
+                    return true;
+                }else{
+                    if(item.children&&item.children.length>0){
+                        if(b(item.children,mid)){
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+
+        function c(o){
+            if(o[0].children&&o[0].children.length>0){
+                c(o[0].children)
+            }else{
+                if(o[0].state){
+                    o[0].state.selected=true;
+                }else{
+                    o[0].state={};
+                    o[0].state.selected=true;
+                }
+            }
+        }
+    }
+    
 
     floatingMenu(){
         let that=this;
@@ -285,6 +325,29 @@ class secondaryPage extends BaseComponent{
         }
         arr.push(instance.get_node(instance.get_selected()[0]).original.text);
         return arr.join(' > ')
+    }
+
+    /**
+     * 协会会刊菜单数据
+     */
+    getJournalTreeList(){
+        const date = new Date();
+        const _y = date.getFullYear();
+        let arr=[];
+        for(let i=2010;i<=_y;i++){
+            let o={
+                'id':`${i}`,
+                'text':`${i}年`,
+                'name':'journal'
+            };
+            arr.unshift(o)
+        }
+        arr.unshift({
+            'id':'0',
+            'text':'全部会刊',
+            'name':'journal'
+        })
+        return arr;
     }
 }
 module.exports=secondaryPage;
